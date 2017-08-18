@@ -13,13 +13,13 @@
             <div class="control">
                 <label class="radio">
                 <input type="radio" name="question">
-                Public, share your moment with the world!
+                <small>Public, share your moment with the world!</small>
                 </label>
             </div>
         </div>
         <div class="field is-grouped">
             <div class="control">
-                <button @click="saveMoment" class="button is-primary">Save</button>
+                <button @click="saveMoment" class="button is-warning">Save</button>
             </div>
         </div>
     </div>
@@ -32,9 +32,9 @@
         <div class="card is-primary">
             <div class="card-content">
                 <p class="content">{{ moment.text }}</p>
-                <small class="subtitle">{{ moment.date | formatDate }}</small>
+                <small>{{ moment.date | formatDate }}</small>
             </div>
-            <footer class="card-footer">
+            <footer class="card-footer" style="margin-bottom: 10px">
                 <a class="card-footer-item">Edit</a>
                 <a class="card-footer-item">Delete</a>
             </footer> 
@@ -71,7 +71,9 @@ export default {
                 api.getMoments().then(moments => {
                     this.moments = moments
                 })
+               this.newMoment = ""
             })
+
         }
     },
 }

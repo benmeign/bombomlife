@@ -13,7 +13,7 @@
       
       <div class="nav-center">
         <a class="nav-item" href="/">
-        <img src="./assets/logoold.png" alt="BomBomLife" height="42">
+        <img src="./assets/logo-bicolor.png" alt="BomBomLife" height="42">
         </a>
       </div>
 
