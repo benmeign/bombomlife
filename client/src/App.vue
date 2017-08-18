@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <div class="block">
+    <div class="block container">
     <nav class="nav">
 
       <div class="nav-left">
-        <a class="nav-item" href="/">
+        <a class="nav-item" href="/#/mymoments">
         <span class="icon">
-                  <img src="./assets/buddha-green.png" alt="Profile" height="28">
+                  <img src="./assets/yoga-green.png" alt="Profile" height="28">
         </span>
         </a>
       </div>
@@ -18,7 +18,7 @@
       </div>
 
       <div class="nav-right">
-        <a class="nav-item" href="/">
+        <a class="nav-item" href="/#/walloflife">
         <span class="icon">
            <img src="./assets/lotus-green.png" alt="Profile" height="28">
         </span>
@@ -28,11 +28,9 @@
     </nav>
     </div>
 
-
-    <img >
     <router-view></router-view>
 
-    <footer class="footer">
+    <footer class="footer" style="margin-top: 50px">
     <div class="container">
     <div class="content has-text-centered">
       <p>
@@ -64,4 +62,6 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+
 </style>
