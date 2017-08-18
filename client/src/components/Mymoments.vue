@@ -29,16 +29,31 @@
 
     <div v-for="moment in moments">
 
+        <section v-if="!moment.editStatus">
         <div class="card is-primary">
             <div class="card-content">
                 <p class="content">{{ moment.text }}</p>
                 <small>{{ moment.date | formatDate }}</small>
             </div>
             <footer class="card-footer" style="margin-bottom: 10px">
-                <a class="card-footer-item">Edit</a>
+                <a class="card-footer-item" @click="moment.editStatus=true">Edit</a>
                 <a class="card-footer-item">Delete</a>
             </footer> 
         </div>
+        </section>
+
+        <section v-else>
+        <div class="card is-primary">
+            <div class="card-content">
+                <textarea rows="6" cols="50" class="content" v-model="moment.text"></textarea>
+                <small>{{ moment.date | formatDate }}</small>
+            </div>
+            <footer class="card-footer" style="margin-bottom: 10px">
+                <a class="card-footer-item" @click="updateText(moment)">Save</a>
+                <a class="card-footer-item">Delete</a>
+            </footer> 
+        </div>
+        </section>
   
     </div>
 </div>
@@ -55,12 +70,15 @@ export default {
   data () {
     return {
       newMoment: {},
-      moments: []
+      moments: [],
     };
   },
   created () {
       api.getMoments().then(moments => {
-            this.moments = moments
+            this.moments = moments.map((moment) => {
+                moment.editStatus = false;
+                return moment
+            })
         })
     },
     methods: {
@@ -73,7 +91,10 @@ export default {
                 })
                this.newMoment = ""
             })
-
+        },
+        updateText(moment){
+            api.editText(moment._id,moment.text);
+            moment.editStatus = false;
         }
     },
 }

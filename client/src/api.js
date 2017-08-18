@@ -16,7 +16,15 @@ function addMoment(text, date) {
     });
 }
 
+function editText(momentId, text) {
+    return bombomlifeApi.put(`/mymoments`, {text}).then(response => {
+        return response.data;  
+    });
+}
+
+
 export default {
     getMoments,
-    addMoment
+    addMoment,
+    editText
 }
