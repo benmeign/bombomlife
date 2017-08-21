@@ -10,15 +10,21 @@ function getMoments() {
     });
 }
 
-function addMoment(text, date) {
-    return bombomlifeApi.put(`/mymoments`, {text, date}).then(response => {
-        return response.data;  
+function addMoment(text) {
+    return bombomlifeApi.post(`/mymoments`, { text }).then(response => {
+        return response.data;
     });
 }
 
-function editText(momentId, text) {
-    return bombomlifeApi.put(`/mymoments`, {text}).then(response => {
-        return response.data;  
+function editText(mymomentId, text) {
+    return bombomlifeApi.put(`/mymoments/${mymomentId}`, { text }).then(response => {
+        return response.data;
+    });
+}
+
+function deleteMoment(mymomentId) {
+    return bombomlifeApi.delete(`/mymoments/${mymomentId}`).then(response => {
+        return response.data;
     });
 }
 
@@ -26,5 +32,6 @@ function editText(momentId, text) {
 export default {
     getMoments,
     addMoment,
-    editText
+    editText,
+    deleteMoment
 }
