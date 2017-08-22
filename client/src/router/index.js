@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
-import Moments from '@/components/Mymoments'
+import Moments from '@/profile/Mymoments'
 import Welcome from '@/components/welcome'
-import SignUp from '@/components/SignUp'
+import SignUp from '@/auth/SignUp'
+import Login from '@/auth/Login'
+
 Vue.use(Router)
 
 export default new Router({
@@ -27,6 +29,11 @@ export default new Router({
       path: '/signup',
       name: 'SignUp',
       component: SignUp
-    }
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
   ]
 })

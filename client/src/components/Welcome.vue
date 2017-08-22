@@ -1,5 +1,4 @@
 <template>
-
   <section class="hero is-fullheight">
 
     <div class="hero-body">
@@ -7,24 +6,23 @@
         <div class="columns is-vcentered">
           <div class="column is-5">
             <figure class="image is-4by3">
-              <img src="https://images.unsplash.com/photo-1461669802687-84a1aee43a29?dpr=1&auto=format&crop=entropy&fit=crop&w=800&h=600&q=80" class="promo-img" alt="Description">
+              <img src="https://media.giphy.com/media/l0MYtjhrNDLnlKf28/giphy.gif" class="promo-img" alt="Smiiile">
             </figure>
           </div>
-          <div class="column is-6 is-offset-1">
+          <div class="column is-6 is-offset-1 is-warning">
             <h1 class="title is-2">
-              You want to learn how to be happy in your daily life?
+              Embark on the happiness challenge now!
             </h1>
             <h2 class="subtitle is-4">
-              Embark on the happiness challenge!
-            </h2>
-            <h2 class="subtitle is-4">
-                It's free, simple and easy.
+              It's free, simple and easy.
+              <br> And it will change your life.
+
             </h2>
 
             <br>
             <p class="control has-addons has-text-centered">
-              <a class="button is-large is-warning">
-                Yes, I'm ready, let's go!
+              <a class="button is-large is-warning" href="/#/signup">
+                Yes, I'm ready. Let's go!
               </a>
             </p>
           </div>
@@ -32,7 +30,6 @@
       </div>
     </div>
   </section>
-
 </template>
 
 <script>
@@ -40,3 +37,34 @@ export default {
   name: 'welcome',
 }
 </script>
+
+<style>
+.subtitle {
+  padding-top: 30px
+}
+
+.promo-img {
+  height: 200px
+}
+
+
+.hero-body {
+  padding-top: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 
+happy: https://media.giphy.com/media/26BkNItrjPoIhB4Bi/giphy.gif
+smile cute: https://media.giphy.com/media/l0MYtjhrNDLnlKf28/giphy.gif
+
+ */
+</style>

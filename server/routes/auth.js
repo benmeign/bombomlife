@@ -9,13 +9,13 @@ const config = require('../config');
 
 router.post('/signup', (req, res, next) => {
     const {
-    username,
+    email,
         name,
         password
   } = req.body;
 
     const user = new User({
-        username,
+        email,
         name
     });
 
@@ -31,9 +31,9 @@ router.post('/signup', (req, res, next) => {
 /* Login route */
 const authenticate = User.authenticate();
 router.post("/login", (req, res) => {
-    const { username, password } = req.body;
-    if (username && password) {
-        authenticate(username, password, (err, user, next, failed) => {
+    const { email, password } = req.body;
+    if (email && password) {
+        authenticate(email, password, (err, user, next, failed) => {
             if (err) {
                 return next(err);
             }
@@ -49,7 +49,7 @@ router.post("/login", (req, res) => {
             }
         });
     } else {
-        res.sendStatus(401).json('user or password missing');
+        res.sendStatus(401).json('email or password missing');
     }
 });
 

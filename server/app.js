@@ -15,6 +15,7 @@ const passport = require("passport");
 const User = require("./models/user");
 const config = require("./config");
 const { Strategy, ExtractJwt } = require("passport-jwt");
+const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
 
 // view engine setup
 
@@ -49,6 +50,28 @@ const strategy = new Strategy(
   }
 );
 passport.use(strategy);
+
+app.use("/api", (req, res, next) => {
+  const authenticate = passport.authenticate(
+    "jwt",
+    config.jwtSession,
+    (err, user, fail) => {
+      req.user = user;
+      next(err);
+    }
+  );
+  authenticate(req, res, next);
+});
+
+app.get("/api/me", (req, res) => {
+  if (req.user) {
+    res.json(req.user);
+  } else {
+    res.json({
+      message: "You're not connected"
+    });
+  }
+});
 
 app.use('/', index);
 app.use('/api', authRoutes);

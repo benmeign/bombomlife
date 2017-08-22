@@ -1,33 +1,36 @@
 <template>
     <div class="container">
 
-        <div>
-            <label class="label title is-left">What made you happy today?</label>
-            <div class="columns">
-                <div class="column">
-                    <div class="field">
-                        <div class="control">
-                            <textarea class="input is-warning" type="text" placeholder="I danced samba with my friend" v-model="newMoment.text"></textarea>
-                        </div>
-                    </div>
-                    <!-- <div class="field">
-                                                                                    <div class="control">
-                                                                                        <label class="radio">
-                                                                                        <input type="radio" name="question">
-                                                                                        <small class="inactive">Make it public, share your story in the wall of life!</small>
-                                                                                        </label>
-                                                                                    </div>
-                                                                                </div> -->
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button @click="saveMoment" class="button is-warning">Save</button>
+        <div class="columns">
+
+            <div class="column is-half is-primary">
+                <label class="label title">#1 - Your happiness challenge of the day</label>
+            </div>
+            <div class="column is-half is-warning">
+                <label class="label title">#2 - Your daily gratitude exercise</label>
+                <div>
+                    <label class="label has-text-left">What made you happy today?</label>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <div class="control">
+                                    <textarea class="input is-warning" type="text" placeholder="I danced samba with my friend" v-model="newMoment.text"></textarea>
+                                </div>
+                            </div>
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <button @click="saveMoment" class="button is-warning">Save</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
         <br>
+        <hr>
         <p class="title">My happy memories</p>
 
         <div v-for="moment in moments">
@@ -53,7 +56,7 @@
                     </div>
                     <footer class="card-footer" style="margin-bottom: 10px">
                         <a class="card-footer-item" @click="updateText(moment)">Save</a>
-                        <!-- <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a> -->
+                        <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
                     </footer>
                 </div>
             </section>
@@ -64,7 +67,7 @@
 
 <script>
 
-import api from '@/api'
+import api from './api'
 
 export default {
     name: 'Moments',
@@ -105,3 +108,9 @@ export default {
 }
 
 </script>
+
+<style>
+.column {
+    padding: 20px
+}
+</style>
