@@ -30,10 +30,10 @@ router.post('/signup', (req, res, next) => {
 
 /* Login route */
 const authenticate = User.authenticate();
-router.post("/login", (req, res) => {
+router.post("/login", (req, res, next) => {
     const { email, password } = req.body;
     if (email && password) {
-        authenticate(email, password, (err, user, next, failed) => {
+        authenticate(email, password, (err, user, failed) => {
             if (err) {
                 return next(err);
             }
@@ -45,11 +45,14 @@ router.post("/login", (req, res) => {
                     id: user.id
                 };
                 const token = jwt.encode(payload, config.jwtSecret);
-                res.json({ token });
+                res.json({
+                    token,
+                    name: user.name
+                });
             }
         });
     } else {
-        res.sendStatus(401).json('email or password missing');
+        res.status(401).json("email or password missing");
     }
 });
 

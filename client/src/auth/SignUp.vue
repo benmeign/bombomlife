@@ -23,7 +23,7 @@
               <div>
 
                 <article v-if="error" class="message is-danger">
-                  <div class="message-body">{{ error }}</div>
+                  <div class="message-body">{{ error.message }}</div>
                 </article>
 
                 <b-field label="Name">
@@ -42,7 +42,7 @@
                 </b-field>
 
                 <p class="control has-text-centered">
-                  <button class="button is-primary" @click="signup">Register</button>
+                  <button class="button is-primary" @click="signup" :class="buttonClasses">Register</button>
                 </p>
               </div>
 
@@ -51,7 +51,7 @@
           </div>
         </div>
         <p class="has-text-centered">
-          <a href="/login">Login</a>
+          <a href="/#/login">Login</a>
         </p>
       </div>
     </div>
@@ -66,8 +66,16 @@ export default {
   data() {
     return {
       error: '',
+      name: '',
       email: '',
       password: ''
+    }
+  },
+  computed: {
+    buttonClasses() {
+      return {
+        'is-loading': this.loading
+      }
     }
   },
   methods: {
@@ -77,7 +85,8 @@ export default {
         email: this.email,
         password: this.password
       }).then((response) => {
-        this.response = response
+        this.response = response;
+        this.$router.push({ path: '/mymoments' });
       }).catch(err => {
         this.error = err.response.data
       })

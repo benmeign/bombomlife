@@ -5,7 +5,7 @@
                 <div class="columns">
                     <div class="column is-6 is-offset-3">
                         <h1 class="title">
-                            Connect to your account
+                            Connect to your BomBomLife account
                         </h1>
 
                         <div class="box">
@@ -20,29 +20,21 @@
                                 <div class="or-line"></div>
                             </div>
 
-                            <div class="field">
-                                <label class="label">Email</label>
-                                <div class="control has-icons-left has-icons-right">
-                                    <input class="input" type="text" placeholder="bene@bombomlife.com" value="">
-                                    <span class="icon is-small is-left">
-                                        <i class="fa fa-envelope"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="label">Password</label>
-                                <div class="control has-icons-left has-icons-right">
-                                    <input class="input" type="text" placeholder="Irock;)" value="">
-                                    <span class="icon is-small is-left">
-                                        <i class="fa fa-lock"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <hr>
+                            <div>
+                                <b-notification type="is-danger" :closable="false" v-if="error">{{ error }}</b-notification>
+                                <form @submit.prevent="login">
+                                    <b-field label="Email">
+                                        <b-input v-model="email" type="email" required></b-input>
+                                    </b-field>
 
-                            <p class="control has-text-centered">
-                                <button class="button is-primary">Login</button>
-                            </p>
+                                    <b-field label="Password">
+                                        <b-input v-model="password" type="password" required></b-input>
+                                    </b-field>
+
+                                    <button class="button is-primary" :class="buttonClasses">Login</button>
+                                </form>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -52,8 +44,38 @@
 </template>
 
 <script>
+import auth from './api'
+
 export default {
-    name: 'Login',
+    name: 'login',
+    data() {
+        return {
+            error: '',
+            loading: false,
+            email: '',
+            password: ''
+        }
+    },
+    computed: {
+        buttonClasses() {
+            return {
+                'is-loading': this.loading
+            }
+        }
+    },
+    methods: {
+        login() {
+            this.error = ''
+            this.loading = true
+            auth.login(this.email, this.password, this).then((response) => {
+                this.$router.push('/mymoments')
+            }).catch(err => {
+                this.error = err.response.data
+            }).then(() => {
+                this.loading = false
+            })
+        }
+    }
 }
 </script>
 

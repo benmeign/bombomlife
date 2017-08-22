@@ -4,11 +4,19 @@
       <nav class="nav">
 
         <div class="nav-left">
-          <a class="nav-item" href="/#/mymoments">
-            <span class="icon">
-              <img src="./assets/yoga-green.png" alt="Profile" height="28">
-            </span>
-            <router-link to="/login" v-if="!$root.user">Login</router-link>
+          <a class="nav-item">
+            <router-link to="/login" v-if="!$root.user">
+              <span class="icon">
+                <img src="./assets/yoga-green.png" alt="Profile" height="28">
+              </span>
+              <span class="navbar-start is-primary">Login</span>
+            </router-link>
+            <router-link to="/mymoments" v-else>
+              <span class="icon">
+                <img src="./assets/yoga-green.png" alt="Profile" height="28">
+              </span>
+              <span class="navbar-start is-primary">My Profile</span>
+            </router-link>
           </a>
         </div>
 
@@ -28,6 +36,7 @@
 
       </nav>
     </div>
+    <hr style="margin-top: 0px">
 
     <router-view></router-view>
 
@@ -43,6 +52,7 @@
               <i class="fa fa-facebook"></i>
             </a>
           </p>
+          <button class="button is-primary" @click="logout">Logout</button>
         </div>
       </div>
     </footer>
@@ -52,8 +62,18 @@
 
 <script>
 
+import auth from './Auth/api'
+
 export default {
-  name: 'app'
+  name: 'app',
+  created() {
+    auth.loadUser(this)
+  },
+  methods: {
+    logout() {
+      auth.logout(this)
+    }
+  }
 }
 
 </script>
@@ -97,5 +117,13 @@ $link-focus-border: $primary;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.container {
+  margin-bottom: 0.5rem,
+}
+
+.block {
+  margin-bottom: 1rem !important,
 }
 </style>

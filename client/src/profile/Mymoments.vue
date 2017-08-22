@@ -1,67 +1,64 @@
 <template>
-    <div class="container">
+    <div>
+        <div class="container">
 
-        <div class="columns">
+            <div class="columns">
 
-            <div class="column is-half is-primary">
-                <label class="label title">#1 - Your happiness challenge of the day</label>
-            </div>
-            <div class="column is-half is-warning">
-                <label class="label title">#2 - Your daily gratitude exercise</label>
-                <div>
-                    <label class="label has-text-left">What made you happy today?</label>
-                    <div class="columns">
-                        <div class="column">
-                            <div class="field">
-                                <div class="control">
-                                    <textarea class="input is-warning" type="text" placeholder="I danced samba with my friend" v-model="newMoment.text"></textarea>
-                                </div>
-                            </div>
-                            <div class="field is-grouped">
-                                <div class="control">
-                                    <button @click="saveMoment" class="button is-warning">Save</button>
-                                </div>
-                            </div>
+                <div class="column is-half is-primary content has-text-centered">
+                    <label class="label title">#1 - Your happiness challenge of the day</label>
+                    <p class="label">Challenge of the day</p>
+                    <button @click="" class="button is-primary">Challenge accepted!</button>
+                </div>
+                <div class="column is-half is-warning">
+                    <label class="label title">#2 - Your daily gratitude exercise</label>
+                    <div>
+                        <label class="label">What made you happy today?</label>
+                        <textarea class="input is-warning" type="text" placeholder="I danced samba with my friend" v-model="newMoment.text"></textarea>
+                        <div class="field">
+                            <button @click="saveMoment" class="button is-warning">Save</button>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <br>
         <hr>
-        <p class="title">My happy memories</p>
 
-        <div v-for="moment in moments">
+        <div class="container">
 
-            <section v-if="!moment.editStatus">
-                <div class="card is-primary">
-                    <div class="card-content">
-                        <p class="content">{{ moment.text }}</p>
-                        <small>{{ moment.date | formatDate }}</small>
+            <p class="title">My happy memories</p>
+
+            <div v-for="moment in moments">
+
+                <section v-if="!moment.editStatus">
+                    <div class="card is-primary">
+                        <div class="card-content">
+                            <p class="content">{{ moment.text }}</p>
+                            <small>{{ moment.date | formatDate }}</small>
+                        </div>
+                        <footer class="card-footer" style="margin-bottom: 10px">
+                            <a class="card-footer-item" @click="moment.editStatus=true">Edit</a>
+                            <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
+                        </footer>
                     </div>
-                    <footer class="card-footer" style="margin-bottom: 10px">
-                        <a class="card-footer-item" @click="moment.editStatus=true">Edit</a>
-                        <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
-                    </footer>
-                </div>
-            </section>
+                </section>
 
-            <section v-else>
-                <div class="card is-warning">
-                    <div class="card-content">
-                        <textarea rows="6" cols="50" class="content" v-model="moment.text"></textarea>
-                        <small>{{ moment.date | formatDate }}</small>
+                <section v-else>
+                    <div class="card is-warning">
+                        <div class="card-content">
+                            <textarea rows="6" cols="50" class="content" v-model="moment.text"></textarea>
+                            <small>{{ moment.date | formatDate }}</small>
+                        </div>
+                        <footer class="card-footer" style="margin-bottom: 10px">
+                            <a class="card-footer-item" @click="updateText(moment)">Save</a>
+                            <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
+                        </footer>
                     </div>
-                    <footer class="card-footer" style="margin-bottom: 10px">
-                        <a class="card-footer-item" @click="updateText(moment)">Save</a>
-                        <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
-                    </footer>
-                </div>
-            </section>
+                </section>
 
+            </div>
         </div>
+
     </div>
 </template>
 
@@ -112,5 +109,9 @@ export default {
 <style>
 .column {
     padding: 20px
+}
+
+.button {
+    margin-top: 20px,
 }
 </style>
