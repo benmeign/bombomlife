@@ -4,12 +4,12 @@
 
             <div class="columns">
 
-                <div class="column is-half is-primary content has-text-centered">
+                <div class="column">
                     <label class="label title">#1 - Your happiness challenge of the day</label>
                     <p class="label">Challenge of the day</p>
                     <button @click="" class="button is-primary">Challenge accepted!</button>
                 </div>
-                <div class="column is-half is-warning">
+                <div class="column">
                     <label class="label title">#2 - Your daily gratitude exercise</label>
                     <div>
                         <label class="label">What made you happy today?</label>

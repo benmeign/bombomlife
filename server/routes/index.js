@@ -3,10 +3,6 @@ var router = express.Router();
 
 var Moment = require('../models/moment.js')
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.json({ text: "Welcome to a BomBomLife!" });
-});
 
 /* GET moments. */
 router.get('/api/mymoments', function (req, res, next) {

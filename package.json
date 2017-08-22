@@ -1,0 +1,21 @@
+{
+  "name": "bombomlife",
+  "version": "1.0.0",
+  "description": "Personal development app: save your happy stories every day",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "cd server && npm install",
+    "start": "cd server && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benmeign/bombomlife.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benmeign/bombomlife/issues"
+  },
+  "homepage": "https://github.com/benmeign/bombomlife#readme"
+}
