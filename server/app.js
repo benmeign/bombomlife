@@ -1,3 +1,5 @@
+require("dotenv").config();
+const history = require('connect-history-api-fallback');
 var express = require('express');
 var path = require('path');
 const favicon = require("serve-favicon");
@@ -77,8 +79,12 @@ app.use('/', index);
 app.use('/api', authRoutes);
 
 // connect to Mongo database
-mongoose.connect('mongodb://localhost/bombomlife');
+mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true })
 
+// deployement
+const clientRoot = path.join(__dirname, '../client/dist');
+app.use('/', express.static(clientRoot))
+app.use(history('index.html', { root: clientRoot }))
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
