@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div class="block container">
-      <nav class="nav">
 
+      <nav class="nav">
         <div class="nav-left">
           <a class="nav-item">
             <router-link to="/login" v-if="!$root.user">
@@ -15,7 +15,7 @@
               <span class="icon">
                 <img src="./assets/yoga-green.png" alt="Profile" height="28">
               </span>
-              <span class="navbar-start is-primary">My Profile</span>
+              <span class="navbar-start is-primary is-active">My Profile</span>
             </router-link>
           </a>
         </div>
