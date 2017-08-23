@@ -21,9 +21,9 @@
 
             <br>
             <p class="control has-addons has-text-centered">
-              <a class="button is-large is-warning" href="/#/signup">
+              <router-link to="/signup" class="button is-large is-warning">
                 Yes, I'm ready. Let's go!
-              </a>
+              </router-link>
             </p>
           </div>
         </div>
@@ -51,6 +51,12 @@ export default {
 .hero-body {
   padding-top: 0px;
 }
+
+
+
+
+
+
 
 
 

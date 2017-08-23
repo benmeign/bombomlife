@@ -13,18 +13,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'Welcome',
+      component: Welcome
     },
     {
       path: '/mymoments',
       name: 'My Moments',
       component: Moments
-    },
-    {
-      path: '/welcome',
-      name: 'Welcome',
-      component: Welcome
     },
     {
       path: '/signup',

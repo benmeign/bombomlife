@@ -2,29 +2,28 @@
     <div>
         <div class="container">
 
-            <div class="columns">
+            <div class="columns has-text-centered">
 
                 <div class="column">
-                    <label class="label title">#1 - Your happiness challenge of the day</label>
-                    <p class="label">Challenge of the day</p>
-                    <button @click="" class="button is-primary">Challenge accepted!</button>
+                    <div id="challenge">
+                        <label class="label title">#1 - Your happiness challenge of the day</label>
+                        <p class="label">Challenge of the day</p>
+                        <button @click="" class="button is-primary">Challenge accepted!</button>
+                    </div>
                 </div>
                 <div class="column">
                     <label class="label title">#2 - Your daily gratitude exercise</label>
                     <div>
                         <label class="label">What made you happy today?</label>
-                        <textarea class="input is-warning" type="text" placeholder="I danced samba with my friend" v-model="newMoment.text"></textarea>
+                        <textarea class="input is-warning" type="text" placeholder="I danced samba with Alex in the park" v-model="newMoment.text"></textarea>
                         <div class="field">
                             <button @click="saveMoment" class="button is-warning">Save</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <hr>
-
-        <div class="container">
+            <hr>
 
             <p class="title">My happy memories</p>
 
@@ -108,10 +107,14 @@ export default {
 
 <style>
 .column {
-    padding: 20px
+    padding: 50px
 }
 
 .button {
     margin-top: 20px,
+}
+
+#challenge {
+    background: black,
 }
 </style>
