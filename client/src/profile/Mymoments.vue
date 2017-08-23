@@ -15,10 +15,14 @@
                     <label class="label title">#2 - Your daily gratitude exercise</label>
                     <div>
                         <label class="label">What made you happy today?</label>
-                        <textarea class="input is-warning" type="text" placeholder="I danced samba with Alex in the park" v-model="newMoment.text"></textarea>
-                        <div class="field">
+                        <div class="control">
+                            <textarea class="input is-warning" type="text" placeholder="I danced samba with Alex in the park" v-model="newMoment.text"></textarea>
+                        </div>
+
+                        <div class="field save-button">
                             <button @click="saveMoment" class="button is-warning">Save</button>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -116,5 +120,9 @@ export default {
 
 #challenge {
     background: black,
+}
+
+.save-button {
+    margin-top: 10px;
 }
 </style>

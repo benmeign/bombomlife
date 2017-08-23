@@ -18,7 +18,6 @@ router.post('/signup', (req, res, next) => {
         email,
         name
     });
-
     User.register(user, password, (err) => {
         if (err) {
             return next(err)
@@ -47,7 +46,8 @@ router.post("/login", (req, res, next) => {
                 const token = jwt.encode(payload, config.jwtSecret);
                 res.json({
                     token,
-                    name: user.name
+                    name: user.name,
+                    userId: user.id
                 });
             }
         });

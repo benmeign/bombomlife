@@ -4,18 +4,22 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 const MomentSchema = new Schema({
-    text: {
-        type: String,
-        required: [true, 'text is required']
-      },
-    date: {
-        type: Date, 
-        default: Date.now      
-      },
-    public: {
-      type: Boolean,
-      default: false
-    }
+  text: {
+    type: String,
+    required: [true, 'text is required']
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  public: {
+    type: Boolean,
+    default: false
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
 });
 
 module.exports = mongoose.model('Moment', MomentSchema);

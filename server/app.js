@@ -19,10 +19,6 @@ const config = require("./config");
 const { Strategy, ExtractJwt } = require("passport-jwt");
 const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
 
-// view engine setup
-
-
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(favicon(path.join(__dirname, "public", "/images/buddha-grey.ico")));

@@ -16,9 +16,7 @@
             <h2 class="subtitle is-4">
               It's free, simple and easy.
               <br> And it will change your life.
-
             </h2>
-
             <br>
             <p class="control has-addons has-text-centered">
               <router-link to="/signup" class="button is-large is-warning">
@@ -27,6 +25,13 @@
             </p>
           </div>
         </div>
+        <div class="container has-text-centered">
+          <div class="columns is-vcentered">
+            <div class="column is-3">
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -51,6 +56,13 @@ export default {
 .hero-body {
   padding-top: 0px;
 }
+
+
+
+
+
+
+
 
 
 

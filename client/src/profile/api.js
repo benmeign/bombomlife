@@ -5,13 +5,13 @@ const bombomlifeApi = axios.create({
 })
 
 function getMoments() {
-    return bombomlifeApi.get('/mymoments').then(response => {
+    return bombomlifeApi.get('/users/mymoments').then(response => {
         return response.data;
     });
 }
 
 function addMoment(text) {
-    return bombomlifeApi.post(`/mymoments`, { text }).then(response => {
+    return bombomlifeApi.post(`/users/mymoments`, { text }).then(response => {
         return response.data;
     });
 }
