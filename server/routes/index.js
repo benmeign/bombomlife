@@ -6,6 +6,8 @@ const { rightUser, authorizedUser } = require("../middlewares")
 var Moment = require('../models/moment.js')
 var User = require('../models/user.js')
 
+// MOMENTS//
+
 /* GET moments. */
 router.get('/users/mymoments', authorizedUser, function (req, res, next) {
   console.log(req.user)
@@ -61,5 +63,19 @@ router.delete('/mymoments/:mymomentId', authorizedUser, function (req, res, next
     }
   })
 })
+
+
+
+// CHALLENGES //
+
+/* GET a challenge */
+router.get('/users/challenge', authorizedUser, function (req, res, next) {
+  Challenges.find().then(challenge => {
+    res.json(challenge);
+  });
+});
+
+/* Assign a challenge to a user*/
+
 
 module.exports = router;

@@ -1,40 +1,61 @@
 <template>
   <div id="app">
-    <div class="container">
-      <nav class="nav">
-        <div class="nav-left">
-          <a class="nav-item">
-            <router-link to="/login" v-if="!$root.user">
-              <span class="icon">
-                <img src="./assets/yoga-green.png" alt="Profile" height="28">
-              </span>
-              <span class="navbar-start is-primary">Login</span>
-            </router-link>
-            <router-link to="/mymoments" v-else>
-              <span class="icon">
-                <img src="./assets/yoga-green.png" alt="Profile" height="28">
-              </span>
-              <span class="navbar-start is-primary is-active">My Profile</span>
-            </router-link>
-          </a>
-        </div>
+    <nav class="nav">
+      <!-- <div class="navbar-brand">
+                    <a class="nav-item" href="/">
+                      <img src="./assets/logo-bicolor.png" alt="BomBomLife" height="42">
+                    </a>
+                  </div>
+                  <div class="navbar-menu is-active is-right">
+                    <div class="navbar-end ">
 
-        <div class="nav-center">
-          <a class="nav-item" href="/">
-            <img src="./assets/logo-bicolor.png" alt="BomBomLife" height="42">
-          </a>
-        </div>
+                      <div class="navbar-item ">
+                        <div class="field is-grouped">
+                          <p class="control">
+                            <router-link to="/login" v-if="!$root.user">
+                              <span class="icon">
+                                <img src="./assets/yoga-green.png" alt="Profile" height="28">
+                              </span>
+                              <span class="navbar-start is-primary">Login</span>
+                            </router-link>
+                            <router-link to="/mymoments" v-else>
+                              <span class="icon">
+                                <img src="./assets/yoga-green.png" alt="Profile" height="28">
+                              </span>
+                              <span class="navbar-start is-primary is-active">My Profile</span>
+                            </router-link>
+                          </p>
 
-        <div class="nav-right">
-          <a class="nav-item" href="/#/walloflife">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </nav> -->
+
+      <div class="nav-left">
+        <a class="nav-item" href="/">
+          <img src="./assets/logo-bicolor.png" alt="BomBomLife" height="42">
+        </a>
+      </div>
+
+      <div class="nav-right">
+        <a class="nav-item">
+          <router-link to="/login" v-if="!$root.user">
             <span class="icon">
-              <img src="./assets/lotus-green.png" alt="Profile" height="28">
+              <img src="./assets/yoga-green.png" alt="Profile" height="28">
             </span>
-          </a>
-        </div>
+            <span class="navbar-start is-primary">Login</span>
+          </router-link>
+          <router-link to="/mymoments" v-else>
+            <span class="icon">
+              <img src="./assets/yoga-green.png" alt="Profile" height="28">
+            </span>
+            <span class="navbar-start is-primary is-active">My Profile</span>
+          </router-link>
+        </a>
+      </div>
 
-      </nav>
-    </div>
+    </nav>
     <hr style="margin-top: 0px">
 
     <router-view></router-view>

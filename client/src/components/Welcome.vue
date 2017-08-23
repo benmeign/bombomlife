@@ -42,8 +42,8 @@
           <h1 class="title">
             Change your life in 21 days
           </h1>
-          <h2 class="subtitle">
-            Every day, you will receive new instructions to make your life happier.
+          <h2 class="subtitle quote">
+            "Life is short and then you die. Make the most of it today, not tomorrow.
           </h2>
           <div class="columns">
             <div class="column is-large">
@@ -85,6 +85,9 @@ export default {
 .hero-body {
   margin-top: 10px;
 }
+
+
+
 
 
 
