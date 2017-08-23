@@ -2,28 +2,50 @@
     <div>
         <div class="container">
 
-            <div class="columns has-text-centered">
+            <div class="columns">
 
                 <div class="column">
-                    <div id="challenge">
-                        <label class="label title">#1 - Your happiness challenge of the day</label>
-                        <p class="label">Challenge of the day</p>
-                        <button @click="" class="button is-primary">Challenge accepted!</button>
+                    <div class="has-text-centered">
+                        <div id="challenge">
+                            <label class="label title">#1 - Your happiness challenge of the day</label>
+                            <p class="label">Challenge of the day</p>
+
+                            <section v-if="!challengeAccepted">
+                                <button @click="" class="button is-primary">Challenge accepted!</button>
+                                <br>
+                                <button class="button is-primary-invert" style="margin-top: 10px">
+                                    <span>Skip this one </span>
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                </button>
+                            </section>
+
+                            <section v-else>
+                                <button @click="" class="button is-warning">I did it :)</button>
+                                <br>
+                                <button class="button is-warning" style="margin-top: 10px">
+                                    <span>I didn't manage :(</span>
+                                </button>
+                            </section>
+
+                        </div>
                     </div>
                 </div>
                 <div class="column">
-                    <label class="label title">#2 - Your daily gratitude exercise</label>
-                    <div>
-                        <label class="label">What made you happy today?</label>
-                        <div class="control">
-                            <textarea class="input is-warning" type="text" placeholder="I danced samba with Alex in the park" v-model="newMoment.text"></textarea>
-                        </div>
+                    <div class="has-text-centered">
+                        <label class="label title">#2 - Your daily gratitude exercise</label>
+                        <div>
+                            <label class="label">What made you happy today?</label>
+                            <div class="control">
+                                <textarea class="input is-warning" type="text" placeholder="I danced samba with Alex in the park" v-model="newMoment.text"></textarea>
+                            </div>
 
-                        <div class="field save-button">
-                            <button @click="saveMoment" class="button is-warning">Save</button>
-                        </div>
+                            <div class="field save-button">
+                                <button @click="saveMoment" class="button is-warning">Save</button>
+                            </div>
 
+                        </div>
                     </div>
+
                 </div>
             </div>
 
@@ -47,7 +69,7 @@
                 </section>
 
                 <section v-else>
-                    <div class="card is-warning">
+                    <div class="card">
                         <div class="card-content">
                             <textarea rows="6" cols="50" class="content" v-model="moment.text"></textarea>
                             <small>{{ moment.date | formatDate }}</small>
@@ -75,6 +97,7 @@ export default {
         return {
             newMoment: {},
             moments: [],
+            challengeAccepted: false,
         };
     },
     created() {
