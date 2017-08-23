@@ -18,7 +18,8 @@ router.get('/users/mymoments', authorizedUser, function (req, res, next) {
 router.post('/users/mymoments', authorizedUser, function (req, res, next) {
   let moment = new Moment({ text: req.body.text, userId: req.user._id });
   moment.save((err, newMoment) => {
-    res.json({ data: newMoment, err: err })
+    if (err) return next(err)
+    res.json(newMoment)
   })
 });
 
@@ -26,7 +27,7 @@ router.post('/users/mymoments', authorizedUser, function (req, res, next) {
 router.post('/mymoments/:mymomentId', authorizedUser, function (req, res, next) {
   let mymomentId = req.params.mymomentId;
   Moment.findById(mymomentId, function (err, moment) {
-    if (mymomentId.userId !== req.user._id) {
+    if (!moment.userId.equals(req.user._id)) {
       var err = new Error('Not authorized');
       err.status = 401;
       next(err);
@@ -43,7 +44,7 @@ router.post('/mymoments/:mymomentId', authorizedUser, function (req, res, next) 
 });
 
 /* Delete a moment. */
-router.delete('/mymoments/:mymomentId', ensureLoggedIn(), function (req, res, next) {
+router.delete('/mymoments/:mymomentId', authorizedUser, function (req, res, next) {
   let mymomentId = req.params.mymomentId;
   Moment.findById(mymomentId, function (err, moment) {
     // console.log(moment)

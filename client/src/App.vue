@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <div class="block container">
-
+    <div class="container">
       <nav class="nav">
         <div class="nav-left">
           <a class="nav-item">
@@ -40,7 +39,7 @@
 
     <router-view></router-view>
 
-    <footer class="footer" style="margin-top: 50px">
+    <footer class="footer">
       <div class="container">
         <div class="content has-text-centered">
           <p>
@@ -126,5 +125,9 @@ $link-focus-border: $primary;
 
 .block {
   margin-bottom: 1rem !important,
+}
+
+.footer {
+  margin-top: 0px;
 }
 </style>

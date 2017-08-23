@@ -17,7 +17,7 @@ function addMoment(text) {
 }
 
 function editText(mymomentId, text) {
-    return bombomlifeApi.put(`/mymoments/${mymomentId}`, { text }).then(response => {
+    return bombomlifeApi.post(`/mymoments/${mymomentId}`, { text }).then(response => {
         return response.data;
     });
 }

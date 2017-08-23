@@ -6,8 +6,8 @@ import App from './App'
 import router from './router'
 import Moments from './profile/Mymoments'
 import libmoment from 'moment'
-import Login from './auth/Login'
-import SignUp from './auth/SignUp'
+import Login from './Auth/Login'
+import SignUp from './Auth/SignUp'
 
 
 Vue.config.productionTip = false

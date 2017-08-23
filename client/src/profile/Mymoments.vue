@@ -87,11 +87,9 @@ export default {
     },
     methods: {
         saveMoment() {
-            api.addMoment(this.newMoment.text).then(() => {
-                console.log(this.newMoment.text)
-                api.getMoments().then(moments => {
-                    this.moments = moments
-                })
+            api.addMoment(this.newMoment.text).then((moment) => {
+                moment.editStatus = false
+                this.moments.unshift(moment)
                 this.newMoment = {}
             })
         },
