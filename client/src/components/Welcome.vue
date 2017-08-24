@@ -54,12 +54,12 @@
               <h4 class="is-small">We thought about small actions that will make you enjoy your day.</h4>
             </div>
             <div class="column">
-              <i class="fa fa-file-text fa-5x" aria-hidden="true"></i>
+              <i class="fa fa-file-text fa-3x" aria-hidden="true"></i>
               <h3 class="is-medium">Collect your happy memories</h3>
               <h4 class="is-small">Write every day what you are grateful about and save it, just for you.</h4>
             </div>
             <div class="column">
-              <i class="fa fa-gittip fa-5x" aria-hidden="true"></i>
+              <i class="fa fa-gittip fa-3x" aria-hidden="true"></i>
               <h3 class="is-medium">Access to your past data</h3>
               <h4 class="is-small">Access any time to what made you happy in the previous days</h4>
             </div>
@@ -86,7 +86,7 @@ export default {
   height: 200px
 }
 
-.fa {
+.fa-3x {
   font-size: 3rem;
   padding-bottom: 10px;
 }
@@ -95,9 +95,17 @@ export default {
   margin-top: 0px;
 }
 
-.h3 {
-  font-size: 2rem;
-}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
