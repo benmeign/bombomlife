@@ -59,8 +59,8 @@
             </div>
             <div class="column">
               <i class="fa fa-gittip fa-3x" aria-hidden="true"></i>
-              <h3 class="subtitle">Access to your past data and read it when need be.</h3>
-              <h4 class="is-small">Access any time to what made you happy in the previous days</h4>
+              <h3 class="subtitle">Access to your past data and read it when you like.</h3>
+              <h4 class="is-small">Read any time what made you happy in the previous days</h4>
             </div>
           </div>
         </div>
@@ -93,6 +93,9 @@ export default {
 .hero-body {
   margin-top: 0px;
 }
+
+
+
 
 
 
