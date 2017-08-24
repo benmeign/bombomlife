@@ -10,34 +10,34 @@
 
             <div class="box">
               <!-- <div class="facebook">
-                                                      <a class="button-facebook" href="/auth/facebook">
-                                                        <i class="fa fa-facebook fa-fw"></i> Sign up with Facebook</a>
-                                                    </div>
+                                                        <a class="button-facebook" href="/auth/facebook">
+                                                          <i class="fa fa-facebook fa-fw"></i> Sign up with Facebook</a>
+                                                      </div>
 
-                                                    <div class="or-separator">
-                                                      <div class="or-line"></div>
-                                                      <div class="or-text">OR</div>
-                                                      <div class="or-line"></div>
-                                                    </div>
+                                                      <div class="or-separator">
+                                                        <div class="or-line"></div>
+                                                        <div class="or-text">OR</div>
+                                                        <div class="or-line"></div>
+                                                      </div>
 
-                                                    <div> -->
+                                                      <div> -->
 
               <article v-if="error" class="message is-danger">
                 <div class="message-body">{{ error.message }}</div>
               </article>
 
               <b-field label="Name">
-                <b-input v-model="name" type="text" placeholder="Béné" required>
+                <b-input v-model="name" type="text" placeholder="Balou" required>
                 </b-input>
               </b-field>
 
               <b-field label="Email">
-                <b-input v-model="email" type="email" placeholder="bene@bombomlife.com" required>
+                <b-input v-model="email" type="email" placeholder="balou@lelivredelajungle.com" required>
                 </b-input>
               </b-field>
 
               <b-field label="Password">
-                <b-input v-model="password" type="password" placeholder="Irock;)" required>
+                <b-input v-model="password" type="password" placeholder="ilenfautpeupouretreheureux" required>
                 </b-input>
               </b-field>
 
