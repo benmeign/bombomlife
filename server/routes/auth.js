@@ -13,19 +13,18 @@ router.post('/signup', (req, res, next) => {
         name,
         password
   } = req.body;
-    Challenge.findOne().then(challenge => {
-        const user = new User({
-            email,
-            name,
-            runningChallenge: challenge._id,
-        });
-        User.register(user, password, (err) => {
-            if (err) {
-                return next(err)
-            }
-            res.json({ success: true })
-        })
+    const user = new User({
+        email,
+        name,
+        runningChallenge: null,
+    });
+    User.register(user, password, (err) => {
+        if (err) {
+            return next(err)
+        }
+        res.json({ success: true })
     })
+
 });
 
 
