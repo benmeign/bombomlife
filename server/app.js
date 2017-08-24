@@ -13,6 +13,9 @@ var index = require('./routes/index');
 const authRoutes = require('./routes/auth');
 var app = express();
 
+// connect to Mongo database
+mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true })
+
 const passport = require("passport");
 const User = require("./models/user");
 const config = require("./config");
@@ -73,9 +76,6 @@ app.get("/api/me", (req, res) => {
 
 app.use('/api', index);
 app.use('/api', authRoutes);
-
-// connect to Mongo database
-mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true })
 
 // deployement
 const clientRoot = path.join(__dirname, '../client/dist');
