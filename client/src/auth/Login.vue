@@ -1,24 +1,24 @@
 <template>
-    <section class="hero is-fullheight is-bold">
+    <section class="hero is-bold">
         <div class="hero-body">
             <div class="container">
                 <div class="columns">
                     <div class="column is-6 is-offset-3">
                         <h1 class="title">
-                            Connect to your BomBomLife account
+                            Connect to your <br> BomBomLife account
                         </h1>
 
                         <div class="box">
                             <!-- <div class="facebook">
-                                        <a class="button-facebook" href="/auth/facebook">
-                                            <i class="fa fa-facebook fa-fw"></i> Login with Facebook</a>
-                                    </div>
+                                                        <a class="button-facebook" href="/auth/facebook">
+                                                            <i class="fa fa-facebook fa-fw"></i> Login with Facebook</a>
+                                                    </div>
 
-                                    <div class="or-separator">
-                                        <div class="or-line"></div>
-                                        <div class="or-text">OR</div>
-                                        <div class="or-line"></div>
-                                    </div> -->
+                                                    <div class="or-separator">
+                                                        <div class="or-line"></div>
+                                                        <div class="or-text">OR</div>
+                                                        <div class="or-line"></div>
+                                                    </div> -->
 
                             <div>
                                 <b-notification type="is-danger" :closable="false" v-if="error">{{ error }}</b-notification>
@@ -136,5 +136,11 @@ export default {
 .label {
     margin-top: 10px;
     text-align: left
+}
+
+
+.hero-body {
+    margin-top: 0px;
+    padding-top: 50px;
 }
 </style>

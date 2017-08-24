@@ -88,8 +88,16 @@ export default {
 
 
 .hero-body {
-  margin-top: 10px;
+  margin-top: 0px;
+  padding-top: 30px;
 }
+
+
+
+
+
+
+
 
 
 

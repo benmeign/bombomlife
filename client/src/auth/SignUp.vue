@@ -1,5 +1,5 @@
 <template>
-  <section class="hero is-fullheight is-bold">
+  <section class="hero is-bold" style="margin-top: 0px">
     <div class="hero-body">
       <div class="container">
         <div class="columns">
@@ -10,17 +10,17 @@
 
             <div class="box">
               <!-- <div class="facebook">
-                    <a class="button-facebook" href="/auth/facebook">
-                      <i class="fa fa-facebook fa-fw"></i> Sign up with Facebook</a>
-                  </div>
+                                                      <a class="button-facebook" href="/auth/facebook">
+                                                        <i class="fa fa-facebook fa-fw"></i> Sign up with Facebook</a>
+                                                    </div>
 
-                  <div class="or-separator">
-                    <div class="or-line"></div>
-                    <div class="or-text">OR</div>
-                    <div class="or-line"></div>
-                  </div>
+                                                    <div class="or-separator">
+                                                      <div class="or-line"></div>
+                                                      <div class="or-text">OR</div>
+                                                      <div class="or-line"></div>
+                                                    </div>
 
-                  <div> -->
+                                                    <div> -->
 
               <article v-if="error" class="message is-danger">
                 <div class="message-body">{{ error.message }}</div>
@@ -50,11 +50,8 @@
 
         </div>
       </div>
-      <p class="has-text-centered">
-        <a href="/#/login">Login</a>
-      </p>
     </div>
-    </div>
+
   </section>
 </template>
 
@@ -153,5 +150,10 @@ export default {
 .label {
   margin-top: 10px;
   text-align: left
+}
+
+.hero-body {
+  margin-top: 0px;
+  padding-top: 50px;
 }
 </style>

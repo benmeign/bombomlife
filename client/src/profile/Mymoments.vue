@@ -7,7 +7,7 @@
                 <div class="column challenge">
                     <div class="has-text-centered">
                         <label class="label title has-text-centered">#1 - My happiness <br>challenge of the day</label>
-                        <p class="label">{{ runningChallenge.text }}</p>
+                        <p class="label has-text-centered">{{ runningChallenge.text }}</p>
                         <section v-if="!isChallengeAccepted">
                             <button @click="acceptChallenge" class="button is-primary">Challenge accepted!</button>
                             <br>
@@ -18,19 +18,18 @@
                         </section>
 
                         <section v-else>
-                            <button @click="succeedChallenge" class="button is-warning">I did it :)</button>
-                            <br>
-                            <button @click="failChallenge" class="button is-warning" style="margin-top: 10px">
+                            <button @click="succeedChallenge" class="button is-success">I did it :)</button>
+                            <button @click="failChallenge" class="button is-danger">
                                 <span>I didn't manage :(</span>
                             </button>
                         </section>
                     </div>
                 </div>
-                <div class="column">
+                <div class="column gratitude">
                     <div class="has-text-centered">
                         <label class="label title has-text-centered">#2 - My daily <br> gratitude exercise</label>
                         <div>
-                            <label class="label">What made you happy today?</label>
+                            <label class="label has-text-centered">What made you happy today?</label>
                             <div class="control">
                                 <textarea class="input is-warning" type="text" placeholder="I danced samba with Alex in the park" v-model="newMoment.text"></textarea>
                             </div>
@@ -58,23 +57,18 @@
                                     <div class="content">
                                         <p>
                                             <small>{{ moment.date | formatDate }}</small>
-                                            <small style="float:right">
-                                                <nav class="level">
-                                                    <div class="level-left">
-                                                        <a class="level-item">
-                                                            <span class="icon is-small">
-                                                                <i @click="moment.editStatus=true" class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                                            </span>
-                                                        </a>
-                                                        <a class="level-item">
-                                                            <span class="icon is-small">
-                                                                <i @click="deleteMoment(moment)" class="fa fa-trash-o" aria-hidden="true"></i>
-                                                            </span>
-                                                        </a>
-
-                                                    </div>
-                                                </nav>
-                                            </small>
+                                            <nav class="level" style="float:right">
+                                                <a class="level-item">
+                                                    <span class="icon is-small">
+                                                        <i @click="moment.editStatus=true" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                    </span>
+                                                </a>
+                                                <a class="level-item">
+                                                    <span class="icon is-small">
+                                                        <i @click="deleteMoment(moment)" class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    </span>
+                                                </a>
+                                            </nav>
                                             <br> {{ moment.text }}
                                             <hr>
 
@@ -90,23 +84,18 @@
                                     <div class="content">
                                         <p>
                                             <small>{{ moment.date | formatDate }}</small>
-                                            <small style="float:right;">
-                                                <nav class="level">
-                                                    <div class="level-left">
-                                                        <a class="level-item">
-                                                            <span class="icon is-small">
-                                                                <i @click="updateText(moment)" class="fa fa-floppy-o" aria-hidden="true"></i>
-                                                            </span>
-                                                        </a>
-                                                        <a class="level-item" style="float:right;">
-                                                            <span class="icon is-small">
-                                                                <i @click="deleteMoment(moment)" class="fa fa-trash-o" aria-hidden="true"></i>
-                                                            </span>
-                                                        </a>
-
-                                                    </div>
-                                                </nav>
-                                            </small>
+                                            <nav class="level" style="float:right;">
+                                                <a class="level-item">
+                                                    <span class="icon is-small">
+                                                        <i @click="updateText(moment)" class="fa fa-floppy-o" aria-hidden="true"></i>
+                                                    </span>
+                                                </a>
+                                                <a class="level-item" style="float:right;">
+                                                    <span class="icon is-small">
+                                                        <i @click="deleteMoment(moment)" class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    </span>
+                                                </a>
+                                            </nav>
                                             <br>
                                             <textarea rows="2" cols="50" class="content" v-model="moment.text"></textarea>
                                             <hr>
@@ -119,30 +108,30 @@
 
                         <!-- <section v-if="!moment.editStatus">
 
-                                                                                                                                                <div class="card is-primary">
-                                                                                                                                                    <div class="card-content">
-                                                                                                                                                        <p class="content">{{ moment.text }}</p>
-                                                                                                                                                        <small>{{ moment.date | formatDate }}</small>
-                                                                                                                                                    </div>
-                                                                                                                                                    <footer class="card-footer" style="margin-bottom: 10px">
-                                                                                                                                                        <a class="card-footer-item" @click="moment.editStatus=true">Edit</a>
-                                                                                                                                                        <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
-                                                                                                                                                    </footer>
-                                                                                                                                                </div>
-                                                                                                                                            </section>
+                                                                                                                                                                                                                                                    <div class="card is-primary">
+                                                                                                                                                                                                                                                        <div class="card-content">
+                                                                                                                                                                                                                                                            <p class="content">{{ moment.text }}</p>
+                                                                                                                                                                                                                                                            <small>{{ moment.date | formatDate }}</small>
+                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                        <footer class="card-footer" style="margin-bottom: 10px">
+                                                                                                                                                                                                                                                            <a class="card-footer-item" @click="moment.editStatus=true">Edit</a>
+                                                                                                                                                                                                                                                            <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
+                                                                                                                                                                                                                                                        </footer>
+                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                </section>
 
-                                                                                                                                            <section v-else>
-                                                                                                                                                <div class="card">
-                                                                                                                                                    <div class="card-content">
-                                                                                                                                                        <textarea rows="6" cols="50" class="content" v-model="moment.text"></textarea>
-                                                                                                                                                        <small>{{ moment.date | formatDate }}</small>
-                                                                                                                                                    </div>
-                                                                                                                                                    <footer class="card-footer" style="margin-bottom: 10px">
-                                                                                                                                                        <a class="card-footer-item" @click="updateText(moment)">Save</a>
-                                                                                                                                                        <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
-                                                                                                                                                    </footer>
-                                                                                                                                                </div>
-                                                                                                                                            </section> -->
+                                                                                                                                                                                                                                                <section v-else>
+                                                                                                                                                                                                                                                    <div class="card">
+                                                                                                                                                                                                                                                        <div class="card-content">
+                                                                                                                                                                                                                                                            <textarea rows="6" cols="50" class="content" v-model="moment.text"></textarea>
+                                                                                                                                                                                                                                                            <small>{{ moment.date | formatDate }}</small>
+                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                        <footer class="card-footer" style="margin-bottom: 10px">
+                                                                                                                                                                                                                                                            <a class="card-footer-item" @click="updateText(moment)">Save</a>
+                                                                                                                                                                                                                                                            <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
+                                                                                                                                                                                                                                                        </footer>
+                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                </section> -->
 
                     </div>
                 </div>
@@ -237,7 +226,15 @@ export default {
 }
 
 .challenge {
-    background: black,
+    background-color: rgba(0, 209, 178, 0.2);
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.gratitude {
+    background-color: rgba(255, 221, 87, 0.22);
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .save-button {
