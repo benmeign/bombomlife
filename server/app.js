@@ -15,8 +15,10 @@ var app = express();
 
 // connect to Mongo database
 mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true }, err => {
-  console.log(err)
-  process.exit(1)
+  if (err) {
+    console.log(err)
+    process.exit(1)
+  }
 })
 
 const passport = require("passport");
