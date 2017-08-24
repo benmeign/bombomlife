@@ -20,19 +20,19 @@
                         <section v-else>
                             <button @click="succeedChallenge" class="button is-success">I did it :)</button>
                             <!-- <section v-if='!isChallengeSucceeded'>
-                                                    <article class="message is-primary">
-                                                        <div class="message-header">
-                                                            <p>Congrats!</p>
-                                                            <button class="delete" aria-label="delete"></button>
-                                                        </div>
-                                                        <div class="message-body">
-                                                            <p>well done!</p>
-                                                            <figure class="image is-4by3">
-                                                                <img src="https://media.giphy.com/media/l0MYtjhrNDLnlKf28/giphy.gif" class="promo-img" alt="Smiiile">
-                                                            </figure>
-                                                        </div>
-                                                    </article>
-                                                </section> -->
+                                                                                        <article class="message is-primary">
+                                                                                            <div class="message-header">
+                                                                                                <p>Congrats!</p>
+                                                                                                <button class="delete" aria-label="delete"></button>
+                                                                                            </div>
+                                                                                            <div class="message-body">
+                                                                                                <p>well done!</p>
+                                                                                                <figure class="image is-4by3">
+                                                                                                    <img src="https://media.giphy.com/media/l0MYtjhrNDLnlKf28/giphy.gif" class="promo-img" alt="Smiiile">
+                                                                                                </figure>
+                                                                                            </div>
+                                                                                        </article>
+                                                                                    </section> -->
                             <button @click="failChallenge" class="button is-danger">
                                 <span>I didn't manage :(</span>
                             </button>
@@ -122,30 +122,30 @@
 
                         <!-- <section v-if="!moment.editStatus">
 
-                                                                                                                                                                                                                                                                                                        <div class="card is-primary">
-                                                                                                                                                                                                                                                                                                            <div class="card-content">
-                                                                                                                                                                                                                                                                                                                <p class="content">{{ moment.text }}</p>
-                                                                                                                                                                                                                                                                                                                <small>{{ moment.date | formatDate }}</small>
-                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                            <footer class="card-footer" style="margin-bottom: 10px">
-                                                                                                                                                                                                                                                                                                                <a class="card-footer-item" @click="moment.editStatus=true">Edit</a>
-                                                                                                                                                                                                                                                                                                                <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
-                                                                                                                                                                                                                                                                                                            </footer>
-                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                    </section>
+                                                                                                                                                                                                                                                                                                                                            <div class="card is-primary">
+                                                                                                                                                                                                                                                                                                                                                <div class="card-content">
+                                                                                                                                                                                                                                                                                                                                                    <p class="content">{{ moment.text }}</p>
+                                                                                                                                                                                                                                                                                                                                                    <small>{{ moment.date | formatDate }}</small>
+                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                <footer class="card-footer" style="margin-bottom: 10px">
+                                                                                                                                                                                                                                                                                                                                                    <a class="card-footer-item" @click="moment.editStatus=true">Edit</a>
+                                                                                                                                                                                                                                                                                                                                                    <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
+                                                                                                                                                                                                                                                                                                                                                </footer>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                        </section>
 
-                                                                                                                                                                                                                                                                                                    <section v-else>
-                                                                                                                                                                                                                                                                                                        <div class="card">
-                                                                                                                                                                                                                                                                                                            <div class="card-content">
-                                                                                                                                                                                                                                                                                                                <textarea rows="6" cols="50" class="content" v-model="moment.text"></textarea>
-                                                                                                                                                                                                                                                                                                                <small>{{ moment.date | formatDate }}</small>
-                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                            <footer class="card-footer" style="margin-bottom: 10px">
-                                                                                                                                                                                                                                                                                                                <a class="card-footer-item" @click="updateText(moment)">Save</a>
-                                                                                                                                                                                                                                                                                                                <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
-                                                                                                                                                                                                                                                                                                            </footer>
-                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                    </section> -->
+                                                                                                                                                                                                                                                                                                                                        <section v-else>
+                                                                                                                                                                                                                                                                                                                                            <div class="card">
+                                                                                                                                                                                                                                                                                                                                                <div class="card-content">
+                                                                                                                                                                                                                                                                                                                                                    <textarea rows="6" cols="50" class="content" v-model="moment.text"></textarea>
+                                                                                                                                                                                                                                                                                                                                                    <small>{{ moment.date | formatDate }}</small>
+                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                <footer class="card-footer" style="margin-bottom: 10px">
+                                                                                                                                                                                                                                                                                                                                                    <a class="card-footer-item" @click="updateText(moment)">Save</a>
+                                                                                                                                                                                                                                                                                                                                                    <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
+                                                                                                                                                                                                                                                                                                                                                </footer>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                        </section> -->
 
                     </div>
                 </div>
@@ -261,5 +261,18 @@ export default {
 
 .fa-chevron-right {
     font-size: 1rem;
+}
+
+textarea {
+    font-size: 14px;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+
+.label {
+    font-size: 1.25rem;
+}
+
+.title {
+    font-size: 1.5rem;
 }
 </style>

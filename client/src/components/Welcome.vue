@@ -43,24 +43,23 @@
             Change your life in just 21 days
           </h1>
           <h2 class="subtitle">
-            "Life is short and then you die. Make the most of it today, not tomorrow." Ricardo Radaeli
-          </h2>
+            <i>"Most people are about as happy as they make up their minds to be."</i> Abraham Lincoln </h2>
           <div class="columns">
             <div class="column is-large">
               <p>
                 <i class="fa fa-trophy fa-3x" aria-hidden="true"></i>
               </p>
-              <h3 class="is-large">Get a new challenge every day!</h3>
+              <h3 class="subtitle">Get a new challenge every day!</h3>
               <h4 class="is-small">We thought about small actions that will make you enjoy your day.</h4>
             </div>
             <div class="column">
               <i class="fa fa-file-text fa-3x" aria-hidden="true"></i>
-              <h3 class="is-medium">Collect your happy memories</h3>
+              <h3 class="subtitle">Collect your happy memories</h3>
               <h4 class="is-small">Write every day what you are grateful about and save it, just for you.</h4>
             </div>
             <div class="column">
               <i class="fa fa-gittip fa-3x" aria-hidden="true"></i>
-              <h3 class="is-medium">Access to your past data</h3>
+              <h3 class="subtitle">Access to your past data and read it when need be.</h3>
               <h4 class="is-small">Access any time to what made you happy in the previous days</h4>
             </div>
           </div>
@@ -94,6 +93,13 @@ export default {
 .hero-body {
   margin-top: 0px;
 }
+
+
+
+
+
+
+
 
 
 
