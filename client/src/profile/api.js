@@ -29,9 +29,11 @@ function deleteMoment(mymomentId) {
     });
 }
 
-function loadChallenge() {
-    return bombomlifeApi.get()
-}
+// function loadChallenge() {
+//     return bombomlifeApi.get(`users/challenge`).then(response => {
+//         return response.data;
+//     });
+// }
 
 
 export default {
@@ -39,5 +41,5 @@ export default {
     addMoment,
     editText,
     deleteMoment,
-    loadChallenge
+    // loadChallenge
 }

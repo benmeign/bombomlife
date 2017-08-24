@@ -84,8 +84,7 @@ export default {
       auth.signup({
         email: this.email,
         password: this.password
-      }).then((response) => {
-        this.response = response;
+      }).then(() => auth.login(this.email, this.password, this)).then(() => {
         this.$router.push({ path: '/mymoments' });
       }).catch(err => {
         this.error = err.response.data
