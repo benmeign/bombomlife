@@ -4,6 +4,7 @@ const bombomlifeApi = axios.create({
     baseURL: process.env.NODE_ENV === "production" ? '/api' : "http://localhost:3000/api"
 })
 
+
 function getMoments() {
     return bombomlifeApi.get('/users/mymoments').then(response => {
         return response.data;
@@ -27,6 +28,8 @@ function deleteMoment(mymomentId) {
         return response.data;
     });
 }
+
+
 
 
 export default {
