@@ -95,6 +95,13 @@ export default {
   margin-top: 0px;
 }
 
+.h3 {
+  font-size: 2rem;
+}
+
+
+
+
 
 
 
