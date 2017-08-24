@@ -14,7 +14,10 @@ const authRoutes = require('./routes/auth');
 var app = express();
 
 // connect to Mongo database
-mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true })
+mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true }, err => {
+  console.log(err)
+  process.exit(1)
+})
 
 const passport = require("passport");
 const User = require("./models/user");
