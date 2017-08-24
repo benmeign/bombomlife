@@ -29,12 +29,15 @@ function deleteMoment(mymomentId) {
     });
 }
 
-
+function loadChallenge() {
+    return bombomlifeApi.get()
+}
 
 
 export default {
     getMoments,
     addMoment,
     editText,
-    deleteMoment
+    deleteMoment,
+    loadChallenge
 }
