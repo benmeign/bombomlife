@@ -51,6 +51,8 @@ const loadChallenges =
     { "text": "Ask for advise from a friend or a colleague about his expertise" },
     { "text": "Think about something you failed in your life and find out what you learnt from this difficulty" },
     { "text": "Choose a topic you want to learn about and watch a video about this topic" },
+    { "text": "Make a joke to someone" },
+
   ]
 
 Challenges.remove({}, function (err) {

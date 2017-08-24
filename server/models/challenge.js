@@ -5,4 +5,4 @@ const challengeSchema = new Schema({
     text: String
 });
 
-module.exports = mongoose.model('Challenges', challengeSchema);
+module.exports = mongoose.model('Challenge', challengeSchema);

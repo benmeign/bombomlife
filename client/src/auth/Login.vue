@@ -9,16 +9,16 @@
                         </h1>
 
                         <div class="box">
-                            <div class="facebook">
-                                <a class="button-facebook" href="/auth/facebook">
-                                    <i class="fa fa-facebook fa-fw"></i> Login with Facebook</a>
-                            </div>
+                            <!-- <div class="facebook">
+                                        <a class="button-facebook" href="/auth/facebook">
+                                            <i class="fa fa-facebook fa-fw"></i> Login with Facebook</a>
+                                    </div>
 
-                            <div class="or-separator">
-                                <div class="or-line"></div>
-                                <div class="or-text">OR</div>
-                                <div class="or-line"></div>
-                            </div>
+                                    <div class="or-separator">
+                                        <div class="or-line"></div>
+                                        <div class="or-text">OR</div>
+                                        <div class="or-line"></div>
+                                    </div> -->
 
                             <div>
                                 <b-notification type="is-danger" :closable="false" v-if="error">{{ error }}</b-notification>

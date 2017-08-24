@@ -40,23 +40,28 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Change your life in 21 days
+            Change your life in just 21 days
           </h1>
-          <h2 class="subtitle quote">
-            "Life is short and then you die. Make the most of it today, not tomorrow.
+          <h2 class="subtitle">
+            "Life is short and then you die. Make the most of it today, not tomorrow." Ricardo Radaeli
           </h2>
           <div class="columns">
             <div class="column is-large">
-              <p class="is-medium">Get a new challenge every day!</p>
-              <p class="is-small">We thought about small actions that will make you enjoy your day.</p>
+              <p>
+                <i class="fa fa-trophy fa-3" aria-hidden="true"></i>
+              </p>
+              <h3 class="is-large">Get a new challenge every day!</h3>
+              <h4 class="is-small">We thought about small actions that will make you enjoy your day.</h4>
             </div>
             <div class="column">
-              <p class="is-medium">Collect your happy memories</p>
-              <p class="is-small">Write every day what you are grateful about and save it, just for you.</p>
+              <i class="fa fa-file-text fa-3" aria-hidden="true"></i>
+              <h3 class="is-medium">Collect your happy memories</h3>
+              <h4 class="is-small">Write every day what you are grateful about and save it, just for you.</h4>
             </div>
             <div class="column">
-              <p class="is-medium">Access to your past data</p>
-              <p class="is-small">Access any time to what made you happy in the previous days</p>
+              <i class="fa fa-gittip fa-3" aria-hidden="true"></i>
+              <h3 class="is-medium">Access to your past data</h3>
+              <h4 class="is-small">Access any time to what made you happy in the previous days</h4>
             </div>
           </div>
         </div>
@@ -85,6 +90,23 @@ export default {
 .hero-body {
   margin-top: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

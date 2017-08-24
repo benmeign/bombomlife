@@ -9,51 +9,51 @@
             </h1>
 
             <div class="box">
-              <div class="facebook">
-                <a class="button-facebook" href="/auth/facebook">
-                  <i class="fa fa-facebook fa-fw"></i> Sign up with Facebook</a>
-              </div>
+              <!-- <div class="facebook">
+                    <a class="button-facebook" href="/auth/facebook">
+                      <i class="fa fa-facebook fa-fw"></i> Sign up with Facebook</a>
+                  </div>
 
-              <div class="or-separator">
-                <div class="or-line"></div>
-                <div class="or-text">OR</div>
-                <div class="or-line"></div>
-              </div>
+                  <div class="or-separator">
+                    <div class="or-line"></div>
+                    <div class="or-text">OR</div>
+                    <div class="or-line"></div>
+                  </div>
 
-              <div>
+                  <div> -->
 
-                <article v-if="error" class="message is-danger">
-                  <div class="message-body">{{ error.message }}</div>
-                </article>
+              <article v-if="error" class="message is-danger">
+                <div class="message-body">{{ error.message }}</div>
+              </article>
 
-                <b-field label="Name">
-                  <b-input v-model="name" type="text" placeholder="Béné" required>
-                  </b-input>
-                </b-field>
+              <b-field label="Name">
+                <b-input v-model="name" type="text" placeholder="Béné" required>
+                </b-input>
+              </b-field>
 
-                <b-field label="Email">
-                  <b-input v-model="email" type="email" placeholder="bene@bombomlife.com" required>
-                  </b-input>
-                </b-field>
+              <b-field label="Email">
+                <b-input v-model="email" type="email" placeholder="bene@bombomlife.com" required>
+                </b-input>
+              </b-field>
 
-                <b-field label="Password">
-                  <b-input v-model="password" type="password" placeholder="Irock;)" required>
-                  </b-input>
-                </b-field>
+              <b-field label="Password">
+                <b-input v-model="password" type="password" placeholder="Irock;)" required>
+                </b-input>
+              </b-field>
 
-                <p class="control has-text-centered">
-                  <button class="button is-primary" @click="signup" :class="buttonClasses">Register</button>
-                </p>
-              </div>
-
+              <p class="control has-text-centered">
+                <button class="button is-primary" @click="signup" :class="buttonClasses">Register</button>
+              </p>
             </div>
 
           </div>
+
         </div>
-        <p class="has-text-centered">
-          <a href="/#/login">Login</a>
-        </p>
       </div>
+      <p class="has-text-centered">
+        <a href="/#/login">Login</a>
+      </p>
+    </div>
     </div>
   </section>
 </template>

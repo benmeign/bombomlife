@@ -5,6 +5,7 @@ const { rightUser, authorizedUser } = require("../middlewares")
 
 var Moment = require('../models/moment.js')
 var User = require('../models/user.js')
+var Challenge = require('../models/challenge.js')
 
 // MOMENTS//
 
@@ -68,14 +69,77 @@ router.delete('/mymoments/:mymomentId', authorizedUser, function (req, res, next
 
 // CHALLENGES //
 
-/* GET a challenge */
+/* Load a challenge for a user */
 router.get('/users/challenge', authorizedUser, function (req, res, next) {
-  Challenges.find().then(challenge => {
+  Challenge.findById(req.user.runningChallenge).then(challenge => {
     res.json(challenge);
+  });
+})
+
+router.get('/users/mymoments', authorizedUser, function (req, res, next) {
+  console.log(req.user)
+  Moment.find({ userId: req.user._id }, null, { sort: { date: -1 } }).then(moments => {
+    res.json(moments);
   });
 });
 
-/* Assign a challenge to a user*/
+/* Load a challenge for a user */
+function assignNewChallenge(user) {
+  return Challenge.findOne({
+    _id: {
+      $nin:
+      user.challengesSucceeded.concat(user.challengesFailed).concat(user.challengesSkipped)
+    }
+  }).then(challenge => {
+    user.runningChallenge = challenge._id
+    return user.save()
+  })
+};
 
+/* Accept a challenge */
+router.post('/users/challenge/accept', authorizedUser, function (req, res, next) {
+  req.user.isChallengeAccepted = true;
+  req.user.save().then(user => {
+    res.json(user);
+  });
+})
+
+/* Add a challenge to succeeded challenges for a user */
+router.post('/users/challenge/succeed', authorizedUser, function (req, res, next) {
+  if (!req.user.isChallengeAccepted) {
+    var err = new Error('Challenge not accepted yet');
+    err.status = 403;
+    next(err);
+  } else {
+    req.user.challengesSucceeded.push(req.user.runningChallenge);
+    req.user.isChallengeAccepted = false;
+    assignNewChallenge(req.user).then(user => {
+      res.json(user);
+    });
+  }
+});
+
+/* Add a challenge to failed challenges for a user */
+router.post('/users/challenge/fail', authorizedUser, function (req, res, next) {
+  if (!req.user.isChallengeAccepted) {
+    var err = new Error('Challenge not accepted yet');
+    err.status = 403;
+    next(err);
+  } else {
+    req.user.challengesFailed.push(req.user.runningChallenge);
+    req.user.isChallengeAccepted = false;
+    assignNewChallenge(req.user).then(user => {
+      res.json(user);
+    });
+  }
+});
+
+/* Add a challenge to skipped challenges for a user */
+router.post('/users/challenge/skip', authorizedUser, function (req, res, next) {
+  req.user.challengesSkipped.push(req.user.runningChallenge);
+  assignNewChallenge(req.user).then(user => {
+    res.json(user);
+  });
+});
 
 module.exports = router;

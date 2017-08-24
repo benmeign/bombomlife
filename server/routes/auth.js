@@ -3,7 +3,7 @@ const jwt = require("jwt-simple");
 const router = express.Router();
 const User = require('../models/user');
 const config = require('../config');
-
+const Challenge = require('../models/challenge');
 
 /* Create a user route */
 
@@ -13,16 +13,18 @@ router.post('/signup', (req, res, next) => {
         name,
         password
   } = req.body;
-
-    const user = new User({
-        email,
-        name
-    });
-    User.register(user, password, (err) => {
-        if (err) {
-            return next(err)
-        }
-        res.json({ success: true })
+    Challenge.findOne().then(challenge => {
+        const user = new User({
+            email,
+            name,
+            runningChallenge: challenge._id,
+        });
+        User.register(user, password, (err) => {
+            if (err) {
+                return next(err)
+            }
+            res.json({ success: true })
+        })
     })
 });
 

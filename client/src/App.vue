@@ -2,35 +2,35 @@
   <div id="app">
     <nav class="nav container">
       <!-- <div class="navbar-brand">
-                      <a class="nav-item" href="/">
-                        <img src="./assets/logo-bicolor.png" alt="BomBomLife" height="42">
-                      </a>
-                    </div>
-                    <div class="navbar-menu is-active is-right">
-                      <div class="navbar-end ">
+                                          <a class="nav-item" href="/">
+                                            <img src="./assets/logo-bicolor.png" alt="BomBomLife" height="42">
+                                          </a>
+                                        </div>
+                                        <div class="navbar-menu is-active is-right">
+                                          <div class="navbar-end ">
 
-                        <div class="navbar-item ">
-                          <div class="field is-grouped">
-                            <p class="control">
-                              <router-link to="/login" v-if="!$root.user">
-                                <span class="icon">
-                                  <img src="./assets/yoga-green.png" alt="Profile" height="28">
-                                </span>
-                                <span class="navbar-start is-primary">Login</span>
-                              </router-link>
-                              <router-link to="/mymoments" v-else>
-                                <span class="icon">
-                                  <img src="./assets/yoga-green.png" alt="Profile" height="28">
-                                </span>
-                                <span class="navbar-start is-primary is-active">My Profile</span>
-                              </router-link>
-                            </p>
+                                            <div class="navbar-item ">
+                                              <div class="field is-grouped">
+                                                <p class="control">
+                                                  <router-link to="/login" v-if="!$root.user">
+                                                    <span class="icon">
+                                                      <img src="./assets/yoga-green.png" alt="Profile" height="28">
+                                                    </span>
+                                                    <span class="navbar-start is-primary">Login</span>
+                                                  </router-link>
+                                                  <router-link to="/mymoments" v-else>
+                                                    <span class="icon">
+                                                      <img src="./assets/yoga-green.png" alt="Profile" height="28">
+                                                    </span>
+                                                    <span class="navbar-start is-primary is-active">My Profile</span>
+                                                  </router-link>
+                                                </p>
 
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </nav> -->
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </nav> -->
 
       <div class="nav-left">
         <a class="nav-item" href="/">
@@ -44,13 +44,13 @@
             <span class="icon">
               <img src="./assets/yoga-green.png" alt="Profile" height="28">
             </span>
-            <span class="navbar-start is-primary">Login</span>
+            <span class="navbar-start is-primary is-hidden-mobile">Login</span>
           </router-link>
           <router-link to="/mymoments" v-else>
             <span class="icon">
               <img src="./assets/yoga-green.png" alt="Profile" height="28">
             </span>
-            <span class="navbar-start is-primary is-active">My Profile</span>
+            <span class="navbar-start is-primary is-active is-hidden-mobile">My Profile</span>
           </router-link>
         </a>
       </div>
@@ -69,10 +69,10 @@
           </p>
           <p>
             <a class="icon" href="xx">
-              <i class="fa fa-facebook"></i>
+              <i class="fa fa-facebook"> </i>
             </a>
           </p>
-          <button class="button is-primary" @click="logout">Logout</button>
+          <button class="button is-primary" @click="logout" v-if="$root.user">Logout</button>
         </div>
       </div>
     </footer>

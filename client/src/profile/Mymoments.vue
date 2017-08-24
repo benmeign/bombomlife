@@ -4,35 +4,31 @@
 
             <div class="columns">
 
-                <div class="column">
+                <div class="column challenge">
                     <div class="has-text-centered">
-                        <div id="challenge">
-                            <label class="label title">#1 - Your happiness challenge of the day</label>
-                            <p class="label">Challenge of the day</p>
+                        <label class="label title has-text-centered">#1 - My happiness <br>challenge of the day</label>
+                        <p class="label">{{ runningChallenge.text }}</p>
+                        <section v-if="!isChallengeAccepted">
+                            <button @click="acceptChallenge" class="button is-primary">Challenge accepted!</button>
+                            <br>
+                            <button @click="skipChallenge" class="button is-primary-invert" style="margin-top: 10px">
+                                <span>Skip this one &nbsp;</span>
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                            </button>
+                        </section>
 
-                            <section v-if="!challengeAccepted">
-                                <button @click="" class="button is-primary">Challenge accepted!</button>
-                                <br>
-                                <button class="button is-primary-invert" style="margin-top: 10px">
-                                    <span>Skip this one </span>
-                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                </button>
-                            </section>
-
-                            <section v-else>
-                                <button @click="" class="button is-warning">I did it :)</button>
-                                <br>
-                                <button class="button is-warning" style="margin-top: 10px">
-                                    <span>I didn't manage :(</span>
-                                </button>
-                            </section>
-
-                        </div>
+                        <section v-else>
+                            <button @click="succeedChallenge" class="button is-warning">I did it :)</button>
+                            <br>
+                            <button @click="failChallenge" class="button is-warning" style="margin-top: 10px">
+                                <span>I didn't manage :(</span>
+                            </button>
+                        </section>
                     </div>
                 </div>
                 <div class="column">
                     <div class="has-text-centered">
-                        <label class="label title">#2 - Your daily gratitude exercise</label>
+                        <label class="label title has-text-centered">#2 - My daily <br> gratitude exercise</label>
                         <div>
                             <label class="label">What made you happy today?</label>
                             <div class="control">
@@ -51,36 +47,105 @@
 
             <hr>
 
-            <p class="title">My happy memories</p>
+            <div class="memories">
+                <p class="title">My happy memories</p>
+                <div class="box">
 
-            <div v-for="moment in moments">
+                    <div v-for="moment in moments">
+                        <section v-if="!moment.editStatus">
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <small>{{ moment.date | formatDate }}</small>
+                                            <small style="float:right">
+                                                <nav class="level">
+                                                    <div class="level-left">
+                                                        <a class="level-item">
+                                                            <span class="icon is-small">
+                                                                <i @click="moment.editStatus=true" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                            </span>
+                                                        </a>
+                                                        <a class="level-item">
+                                                            <span class="icon is-small">
+                                                                <i @click="deleteMoment(moment)" class="fa fa-trash-o" aria-hidden="true"></i>
+                                                            </span>
+                                                        </a>
 
-                <section v-if="!moment.editStatus">
-                    <div class="card is-primary">
-                        <div class="card-content">
-                            <p class="content">{{ moment.text }}</p>
-                            <small>{{ moment.date | formatDate }}</small>
-                        </div>
-                        <footer class="card-footer" style="margin-bottom: 10px">
-                            <a class="card-footer-item" @click="moment.editStatus=true">Edit</a>
-                            <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
-                        </footer>
+                                                    </div>
+                                                </nav>
+                                            </small>
+                                            <br> {{ moment.text }}
+                                            <hr>
+
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+                        <section v-else>
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <small>{{ moment.date | formatDate }}</small>
+                                            <small style="float:right;">
+                                                <nav class="level">
+                                                    <div class="level-left">
+                                                        <a class="level-item">
+                                                            <span class="icon is-small">
+                                                                <i @click="updateText(moment)" class="fa fa-floppy-o" aria-hidden="true"></i>
+                                                            </span>
+                                                        </a>
+                                                        <a class="level-item" style="float:right;">
+                                                            <span class="icon is-small">
+                                                                <i @click="deleteMoment(moment)" class="fa fa-trash-o" aria-hidden="true"></i>
+                                                            </span>
+                                                        </a>
+
+                                                    </div>
+                                                </nav>
+                                            </small>
+                                            <br>
+                                            <textarea rows="2" cols="50" class="content" v-model="moment.text"></textarea>
+                                            <hr>
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+
+                        <!-- <section v-if="!moment.editStatus">
+
+                                                                                                                                                <div class="card is-primary">
+                                                                                                                                                    <div class="card-content">
+                                                                                                                                                        <p class="content">{{ moment.text }}</p>
+                                                                                                                                                        <small>{{ moment.date | formatDate }}</small>
+                                                                                                                                                    </div>
+                                                                                                                                                    <footer class="card-footer" style="margin-bottom: 10px">
+                                                                                                                                                        <a class="card-footer-item" @click="moment.editStatus=true">Edit</a>
+                                                                                                                                                        <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
+                                                                                                                                                    </footer>
+                                                                                                                                                </div>
+                                                                                                                                            </section>
+
+                                                                                                                                            <section v-else>
+                                                                                                                                                <div class="card">
+                                                                                                                                                    <div class="card-content">
+                                                                                                                                                        <textarea rows="6" cols="50" class="content" v-model="moment.text"></textarea>
+                                                                                                                                                        <small>{{ moment.date | formatDate }}</small>
+                                                                                                                                                    </div>
+                                                                                                                                                    <footer class="card-footer" style="margin-bottom: 10px">
+                                                                                                                                                        <a class="card-footer-item" @click="updateText(moment)">Save</a>
+                                                                                                                                                        <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
+                                                                                                                                                    </footer>
+                                                                                                                                                </div>
+                                                                                                                                            </section> -->
+
                     </div>
-                </section>
-
-                <section v-else>
-                    <div class="card">
-                        <div class="card-content">
-                            <textarea rows="6" cols="50" class="content" v-model="moment.text"></textarea>
-                            <small>{{ moment.date | formatDate }}</small>
-                        </div>
-                        <footer class="card-footer" style="margin-bottom: 10px">
-                            <a class="card-footer-item" @click="updateText(moment)">Save</a>
-                            <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
-                        </footer>
-                    </div>
-                </section>
-
+                </div>
             </div>
         </div>
 
@@ -97,7 +162,8 @@ export default {
         return {
             newMoment: {},
             moments: [],
-            challengeAccepted: false,
+            isChallengeAccepted: false,
+            runningChallenge: null,
         };
     },
     created() {
@@ -107,6 +173,7 @@ export default {
                 return moment
             })
         })
+        this.loadChallenge()
     },
     methods: {
         saveMoment() {
@@ -123,8 +190,38 @@ export default {
         deleteMoment(moment) {
             this.moments.splice(this.moments.indexOf(moment), 1);
             api.deleteMoment(moment._id);
-
         },
+        acceptChallenge() {
+            api.acceptChallenge().then((user) => {
+                this.isChallengeAccepted = user.isChallengeAccepted
+            });
+        },
+        succeedChallenge() {
+            api.succeedChallenge().then((user) => {
+                this.isChallengeAccepted = user.isChallengeAccepted;
+                this.runningChallenge = user.runningChallenge
+                this.loadChallenge()
+            });
+        },
+        failChallenge() {
+            api.failChallenge().then((user) => {
+                this.isChallengeAccepted = user.isChallengeAccepted;
+                this.runningChallenge = user.runningChallenge
+                this.loadChallenge()
+            });
+        },
+        skipChallenge() {
+            api.skipChallenge().then((user) => {
+                this.isChallengeAccepted = user.isChallengeAccepted;
+                this.runningChallenge = user.runningChallenge
+                this.loadChallenge()
+            })
+        },
+        loadChallenge() {
+            api.loadChallenge().then((runningChallenge) => {
+                this.runningChallenge = runningChallenge
+            })
+        }
     },
 }
 
@@ -139,11 +236,15 @@ export default {
     margin-top: 20px,
 }
 
-#challenge {
+.challenge {
     background: black,
 }
 
 .save-button {
     margin-top: 10px;
+}
+
+.memories {
+    margin-bottom: 50px;
 }
 </style>
