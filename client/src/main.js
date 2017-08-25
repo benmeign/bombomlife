@@ -18,15 +18,19 @@ Vue.filter('formatDate', function (value) {
   if (value) {
     return libmoment(String(value)).format('MM/DD/YYYY')
   }
-}),
+});
 
-  /* eslint-disable no-new */
-  new Vue({
-    el: '#app',
-    router,
-    data: {
-      user: null
-    },
-    template: '<App/>',
-    components: { App }
-  })
+Vue.filter('lengthOfArray', function (array) {
+  return array.length
+});
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  data: {
+    user: null
+  },
+  template: '<App/>',
+  components: { App }
+})

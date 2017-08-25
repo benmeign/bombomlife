@@ -4,46 +4,54 @@
 
             <div class="columns">
 
-                <div class="column challenge">
-                    <div class="has-text-centered">
-                        <label class="label title has-text-centered">#1 - My happiness <br>challenge of the day</label>
-                        <p class="label has-text-centered">{{ runningChallenge.text }}</p>
-                        <section v-if="!isChallengeAccepted">
-                            <button @click="acceptChallenge" class="button is-primary">Challenge accepted!</button>
-                            <br>
-                            <button @click="skipChallenge" class="button is-primary-invert" style="margin-top: 10px">
-                                <span>Skip this one &nbsp;</span>
+                <div v-if="runningChallenge" class="column challenge">
+                    <section v-if="!isChallengeSucceeded">
+                        <div class="has-text-centered">
+                            <label class="label title has-text-centered">#1 - My happiness <br>challenge of the day</label>
+                            <p class="label has-text-centered">{{ runningChallenge.text }}</p>
+                            <section v-if="!isChallengeAccepted">
+                                <button @click="acceptChallenge" class="button is-primary">Challenge accepted!</button>
+                                <br>
+                                <button @click="skipChallenge" class="button is-primary-invert" style="margin-top: 10px">
+                                    <span>Skip this one &nbsp;</span>
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                </button>
+                            </section>
+
+                            <section v-else>
+                                <button @click="succeedChallenge" class="button is-success">I did it :)</button>
+                                <div class="modal">
+                                    <div class="modal-background"></div>
+                                    <div class="modal-content">
+                                        <p class="is-success">Well done!</p>
+                                        <p class="image is-4by3">
+                                            <img src="https://media.giphy.com/media/l0MYtjhrNDLnlKf28/giphy.gif" class="promo-img" alt="Smiiile">
+                                        </p>
+                                    </div>
+                                    <button class="modal-close is-large" aria-label="close"></button>
+                                </div>
+
+                                <button @click="failChallenge" class="button is-danger">
+                                    <span>I didn't manage :(</span>
+                                </button>
+                            </section>
+                        </div>
+                    </section>
+
+                    <section v-if="isChallengeSucceeded">
+                        <div class="has-text-centered" style="margin-top:15px">
+                            <label class="label title has-text-centered">Congrats! You succeedeed
+                                <strong> {{ numberOfChallengesSucceeded }} challenges.</strong> You rock!</label>
+                            <figure id="poussin" class="image is-4by3">
+                                <img src="https://media.giphy.com/media/l0MYtjhrNDLnlKf28/giphy.gif" class="promo-img" alt="Smiiile">
+                            </figure>
+                            <button @click="nextChallenge" class="button is-primary-invert" style="margin-top: 10px">
+                                <span>See next challenge &nbsp;</span>
                                 <i class="fa fa-chevron-right" aria-hidden="true"></i>
                             </button>
-                        </section>
+                        </div>
+                    </section>
 
-                        <section v-else>
-                            <button @click="succeedChallenge" class="button is-success">I did it :)</button>
-                            <div class="modal">
-                                <div class="modal-background"></div>
-                                <div class="modal-content">
-                                    <p class="is-success">Well done!</p>
-                                    <p class="image is-4by3">
-                                        <img src="https://media.giphy.com/media/l0MYtjhrNDLnlKf28/giphy.gif" class="promo-img" alt="Smiiile">
-                                    </p>
-                                </div>
-                                <button class="modal-close is-large" aria-label="close"></button>
-                            </div>
-                            <!-- <div class="message-header">
-                                                        <p>Congrats!</p>
-                                                        <button class="delete" aria-label="delete"></button>
-                                                    </div>
-                                                    <div class="message-body">
-                                                        <p>Well done!</p>
-                                                        <figure class="image is-4by3">
-                                                            <img src="https://media.giphy.com/media/l0MYtjhrNDLnlKf28/giphy.gif" class="promo-img" alt="Smiiile">
-                                                        </figure>
-                                                    </div> -->
-                            <button @click="failChallenge" class="button is-danger">
-                                <span>I didn't manage :(</span>
-                            </button>
-                        </section>
-                    </div>
                 </div>
                 <div class="column gratitude">
                     <div class="has-text-centered">
@@ -51,7 +59,7 @@
                         <div>
                             <label class="label has-text-centered">What made you happy today?</label>
                             <div class="control">
-                                <textarea class="input is-warning" type="text" placeholder="I danced samba with Alex in the park" v-model="newMoment.text"></textarea>
+                                <textarea rows="2" class="textarea is-warning" type="text" placeholder="I danced samba with Alex in the park" v-model="newMoment.text"></textarea>
                             </div>
 
                             <div class="field save-button">
@@ -64,7 +72,7 @@
                 </div>
             </div>
 
-            <hr>
+            <hr style="margin-top: 10px">
 
             <div class="memories">
                 <p class="title">My happy memories</p>
@@ -79,12 +87,12 @@
                                             <small>{{ moment.date | formatDate }}</small>
                                             <nav class="level" style="float:right">
                                                 <a class="level-item">
-                                                    <span class="icon is-small">
+                                                    <span class="icon">
                                                         <i @click="moment.editStatus=true" class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                     </span>
                                                 </a>
                                                 <a class="level-item">
-                                                    <span class="icon is-small">
+                                                    <span class="icon">
                                                         <i @click="deleteMoment(moment)" class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </span>
                                                 </a>
@@ -106,12 +114,12 @@
                                             <small>{{ moment.date | formatDate }}</small>
                                             <nav class="level" style="float:right;">
                                                 <a class="level-item">
-                                                    <span class="icon is-small">
+                                                    <span class="icon">
                                                         <i @click="updateText(moment)" class="fa fa-floppy-o" aria-hidden="true"></i>
                                                     </span>
                                                 </a>
                                                 <a class="level-item" style="float:right;">
-                                                    <span class="icon is-small">
+                                                    <span class="icon">
                                                         <i @click="deleteMoment(moment)" class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </span>
                                                 </a>
@@ -125,34 +133,6 @@
                                 </div>
                             </article>
                         </section>
-
-                        <!-- <section v-if="!moment.editStatus">
-
-                                                                                                                                                                                                                                                                                                                                                                                                <div class="card is-primary">
-                                                                                                                                                                                                                                                                                                                                                                                                    <div class="card-content">
-                                                                                                                                                                                                                                                                                                                                                                                                        <p class="content">{{ moment.text }}</p>
-                                                                                                                                                                                                                                                                                                                                                                                                        <small>{{ moment.date | formatDate }}</small>
-                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                    <footer class="card-footer" style="margin-bottom: 10px">
-                                                                                                                                                                                                                                                                                                                                                                                                        <a class="card-footer-item" @click="moment.editStatus=true">Edit</a>
-                                                                                                                                                                                                                                                                                                                                                                                                        <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
-                                                                                                                                                                                                                                                                                                                                                                                                    </footer>
-                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                            </section>
-
-                                                                                                                                                                                                                                                                                                                                                                                            <section v-else>
-                                                                                                                                                                                                                                                                                                                                                                                                <div class="card">
-                                                                                                                                                                                                                                                                                                                                                                                                    <div class="card-content">
-                                                                                                                                                                                                                                                                                                                                                                                                        <textarea rows="6" cols="50" class="content" v-model="moment.text"></textarea>
-                                                                                                                                                                                                                                                                                                                                                                                                        <small>{{ moment.date | formatDate }}</small>
-                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                    <footer class="card-footer" style="margin-bottom: 10px">
-                                                                                                                                                                                                                                                                                                                                                                                                        <a class="card-footer-item" @click="updateText(moment)">Save</a>
-                                                                                                                                                                                                                                                                                                                                                                                                        <a class="card-footer-item" @click="deleteMoment(moment)">Delete</a>
-                                                                                                                                                                                                                                                                                                                                                                                                    </footer>
-                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                            </section> -->
-
                     </div>
                 </div>
             </div>
@@ -174,6 +154,7 @@ export default {
             isChallengeAccepted: false,
             isChallengeSucceeded: false,
             runningChallenge: null,
+            numberOfChallengesSucceeded: 0,
         };
     },
     created() {
@@ -209,9 +190,10 @@ export default {
         succeedChallenge() {
             api.succeedChallenge().then((user) => {
                 this.isChallengeAccepted = user.isChallengeAccepted;
-                this.runningChallenge = user.runningChallenge
-                this.loadChallenge()
-                this.isChallengeSucceeded = true
+                this.runningChallenge = user.runningChallenge;
+                this.numberOfChallengesSucceeded = user.challengesSucceeded.length;
+                this.isChallengeSucceeded = true;
+                this.loadChallenge();
             });
         },
         failChallenge() {
@@ -232,6 +214,9 @@ export default {
             api.loadChallenge().then((runningChallenge) => {
                 this.runningChallenge = runningChallenge
             })
+        },
+        nextChallenge() {
+            this.isChallengeSucceeded = false
         }
     },
 }
@@ -249,18 +234,27 @@ export default {
 
 .challenge {
     background-color: rgba(0, 209, 178, 0.2);
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .gratitude {
     background-color: rgba(255, 221, 87, 0.22);
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .save-button {
     margin-top: 10px;
+}
+
+.button.is-success {
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.button.is-danger {
+    margin-top: 20px;
 }
 
 .memories {
@@ -282,5 +276,25 @@ textarea {
 
 .title {
     font-size: 1.5rem;
+}
+
+.fa-pencil-square-o {
+    margin-right: 4px;
+}
+
+#poussin {
+    position: relative;
+}
+
+#poussin::before {
+    background-color: rgba(0, 209, 178, 0.2);
+    display: block;
+    content: ' ';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 </style>

@@ -91,8 +91,21 @@ function assignNewChallenge(user) {
       user.challengesSucceeded.concat(user.challengesFailed).concat(user.challengesSkipped)
     }
   }).then(challenge => {
-    user.runningChallenge = challenge._id
-    return user.save()
+    if (challenge) {
+      user.runningChallenge = challenge._id
+      return user.save()
+    } else {
+      // TODO Handle case where all the challenges have been suggested to the user
+      // for now we take the first challenge in the collection
+      Challenge.findOne().then((challenge) => {
+        user.runningChallenge = challenge._id
+        return user.save()
+      })
+    }
+
+  }).catch(err => {
+    console.log(err)
+    throw err
   })
 };
 
@@ -106,14 +119,17 @@ router.post('/users/challenge/accept', authorizedUser, function (req, res, next)
 
 /* Add a challenge to succeeded challenges for a user */
 router.post('/users/challenge/succeed', authorizedUser, function (req, res, next) {
+  console.log('post')
   if (!req.user.isChallengeAccepted) {
     var err = new Error('Challenge not accepted yet');
     err.status = 403;
     next(err);
   } else {
+    console.log('accepted')
     req.user.challengesSucceeded.push(req.user.runningChallenge);
     req.user.isChallengeAccepted = false;
     assignNewChallenge(req.user).then(user => {
+      console.log('assigned')
       res.json(user);
     });
   }
