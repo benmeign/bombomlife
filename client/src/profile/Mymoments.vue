@@ -66,6 +66,10 @@
                                 <button @click="saveMoment" class="button is-warning">Save</button>
                             </div>
 
+                            <div class="control has-text-centered">
+                                {{ savedMessage }}
+                            </div>
+
                         </div>
                     </div>
 
@@ -155,6 +159,7 @@ export default {
             isChallengeSucceeded: false,
             runningChallenge: null,
             numberOfChallengesSucceeded: 0,
+            savedMessage: ''
         };
     },
     created() {
@@ -172,7 +177,12 @@ export default {
                 moment.editStatus = false
                 this.moments.unshift(moment)
                 this.newMoment = {}
+                this.savedMessage = 'Well done, you have a new happy memory below!';
+                setTimeout(() => {
+                    this.savedMessage = '';
+                }, 5000)
             })
+
         },
         updateText(moment) {
             api.editText(moment._id, moment.text);
