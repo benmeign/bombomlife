@@ -59,7 +59,7 @@
                         <div>
                             <label class="label has-text-centered">What made you happy today?</label>
                             <div class="control">
-                                <textarea rows="2" class="textarea is-warning" type="text" placeholder="I danced samba with Alex in the park" v-model="newMoment.text"></textarea>
+                                <textarea rows="2" class="textarea is-warning" type="text" placeholder="I ..." v-model="newMoment.text"></textarea>
                             </div>
 
                             <div class="field save-button">

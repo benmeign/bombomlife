@@ -71,8 +71,17 @@
 </template>
 
 <script>
+
+import api from '../auth/api'
+
 export default {
   name: 'welcome',
+  created() {
+    auth.loadUser(this)
+    if (this.$root.user) {
+      this.$router.push('/mymoments')
+    }
+  }
 }
 </script>
 
@@ -93,6 +102,13 @@ export default {
 .hero-body {
   margin-top: 0px;
 }
+
+
+
+
+
+
+
 
 
 
