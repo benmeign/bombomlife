@@ -72,7 +72,7 @@
 
 <script>
 
-import api from '../auth/api'
+import auth from '../Auth/api'
 
 export default {
   name: 'welcome',
@@ -102,6 +102,10 @@ export default {
 .hero-body {
   margin-top: 0px;
 }
+
+
+
+
 
 
 
