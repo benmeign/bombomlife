@@ -54,7 +54,7 @@ router.post("/login", (req, res, next) => {
             }
         });
     } else {
-        res.status(401).json("email or password missing");
+        res.status(401).json("email ou mot de passe manquant");
     }
 });
 
