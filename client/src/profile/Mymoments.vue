@@ -7,23 +7,23 @@
                 <div v-if="runningChallenge" class="column challenge">
                     <section v-if="!isChallengeSucceeded">
                         <div class="has-text-centered">
-                            <label class="label title has-text-centered">#1 - My happiness <br>challenge of the day</label>
+                            <label class="label title has-text-centered">#1 - Mon Happy Challenge<br>du jour</label>
                             <p class="label has-text-centered">{{ runningChallenge.text }}</p>
                             <section v-if="!isChallengeAccepted">
-                                <button @click="acceptChallenge" class="button is-primary">Challenge accepted!</button>
+                                <button @click="acceptChallenge" class="button is-primary">Challenge accepté !</button>
                                 <br>
                                 <button @click="skipChallenge" class="button is-primary-invert" style="margin-top: 10px">
-                                    <span>Skip this one &nbsp;</span>
+                                    <span>Je passe mon tour &nbsp;</span>
                                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
                                 </button>
                             </section>
 
                             <section v-else>
-                                <button @click="succeedChallenge" class="button is-success">I did it :)</button>
+                                <button @click="succeedChallenge" class="button is-success">J'ai réussi :)</button>
                                 <div class="modal">
                                     <div class="modal-background"></div>
                                     <div class="modal-content">
-                                        <p class="is-success">Well done!</p>
+                                        <p class="is-success">Super !</p>
                                         <p class="image is-4by3">
                                             <img src="https://media.giphy.com/media/l0MYtjhrNDLnlKf28/giphy.gif" class="promo-img" alt="Smiiile">
                                         </p>
@@ -32,7 +32,7 @@
                                 </div>
 
                                 <button @click="failChallenge" class="button is-danger">
-                                    <span>I didn't manage :(</span>
+                                    <span>Je n'ai pas pu le faire :(</span>
                                 </button>
                             </section>
                         </div>
@@ -40,13 +40,13 @@
 
                     <section v-if="isChallengeSucceeded">
                         <div class="has-text-centered" style="margin-top:15px">
-                            <label class="label title has-text-centered">Congrats! You succeedeed
-                                <strong> {{ numberOfChallengesSucceeded }} challenges.</strong> You rock!</label>
+                            <label class="label title has-text-centered">Félicitations ! Tu as relevé
+                                <strong> {{ numberOfChallengesSucceeded }} Happy Challenges.</strong> Tu déchires !</label>
                             <figure id="poussin" class="image is-4by3">
                                 <img src="https://media.giphy.com/media/l0MYtjhrNDLnlKf28/giphy.gif" class="promo-img" alt="Smiiile">
                             </figure>
                             <button @click="nextChallenge" class="button is-primary-invert" style="margin-top: 10px">
-                                <span>See next challenge &nbsp;</span>
+                                <span>Voir le prochain challenge &nbsp;</span>
                                 <i class="fa fa-chevron-right" aria-hidden="true"></i>
                             </button>
                         </div>
@@ -55,15 +55,15 @@
                 </div>
                 <div class="column gratitude">
                     <div class="has-text-centered">
-                        <label class="label title has-text-centered">#2 - My daily <br> gratitude exercise</label>
+                        <label class="label title has-text-centered">#2 - Mes Happy Moments <br> tous les jours</label>
                         <div>
-                            <label class="label has-text-centered">What made you happy today?</label>
+                            <label class="label has-text-centered">Qu'est ce qui m'a rendu heureux aujourd'hui ?</label>
                             <div class="control">
                                 <textarea rows="2" class="textarea is-warning" type="text" placeholder="I ..." v-model="newMoment.text"></textarea>
                             </div>
 
                             <div class="field save-button">
-                                <button @click="saveMoment" class="button is-warning">Save</button>
+                                <button @click="saveMoment" class="button is-warning">Enregistrer</button>
                             </div>
 
                             <div class="control has-text-centered">
@@ -79,7 +79,7 @@
             <hr style="margin-top: 10px">
 
             <div class="memories">
-                <p class="title">My happy memories</p>
+                <p class="title">Mes Happy Moments</p>
                 <div class="box">
 
                     <div v-for="moment in moments">

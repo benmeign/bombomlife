@@ -34,11 +34,10 @@
       <div class="container">
         <div class="content has-text-centered">
           <p>
-            <strong>BomBomLife</strong> x
-            <a href="http://ironhack.com">Ironhack</a>
+            <strong>BomBomLife</strong>
           </p>
           <p>
-            <a class="icon" href="xx">
+            <a class="icon" href="https://www.facebook.com/bombomchallenge">
               <i class="fa fa-facebook"> </i>
             </a>
           </p>
