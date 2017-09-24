@@ -11,7 +11,7 @@
             </div>
             <div class="column is-6 is-offset-1 is-warning">
               <h1 class="title is-2">
-                Embarque pour un challenge de 21 jours de bonheur au quotidien !
+                Apprends le bonheur en 21 jours !
               </h1>
               <h2 class="subtitle is-4">
                 C'est gratuit, simple et facile.
@@ -20,7 +20,7 @@
               <br>
               <p class="control has-addons has-text-centered">
                 <router-link to="/signup" class="button is-large is-warning">
-                  Allez, c'est parti. Challenge accepté !
+                  C'est parti, je me lance !
                 </router-link>
               </p>
             </div>
@@ -40,28 +40,28 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Change ta vie en redécouvrant le bonheur en seulement 21 jours.
+            Parce que nous pensons que le bonheur s'apprend, entraine toi à la pratique du bonheur pendant 21 jours.
           </h1>
           <h2 class="subtitle">
-            <i>Parce que nous pensons que le bonheur s'apprend et se pratique</i>
+            <i>"Aucune grâce extérieure n'est complète si la beauté intérieure ne la vivifie."</i> Victor Hugo
           </h2>
           <div class="columns">
             <div class="column is-large">
               <p>
                 <i class="fa fa-trophy fa-3x" aria-hidden="true"></i>
               </p>
-              <h3 class="subtitle">Chaque matin, reçois un nouveau Happy Challenge à relever !</h3>
-              <h4 class="is-small">Nous avons réfléchi avec attention à de petits défis pour enchanter ton quotidien.</h4>
+              <h3 class="subtitle">Chaque matin, reçois un BomBomChallenge à relever !</h3>
+              <h4 class="is-small">Nous avons concocté pour toi de petits défis pour enchanter ton quotidien.</h4>
             </div>
             <div class="column">
               <i class="fa fa-file-text fa-3x" aria-hidden="true"></i>
-              <h3 class="subtitle">Collecte tes petits moments de bonheur quotidiens.</h3>
+              <h3 class="subtitle">Collecte tes BomBomMoments de bonheur quotidiens.</h3>
               <h4 class="is-small">Chaque soir, note ce qui t'a rendu heureux et garde le précieusement, rien que pour toi.</h4>
             </div>
             <div class="column">
               <i class="fa fa-gittip fa-3x" aria-hidden="true"></i>
-              <h3 class="subtitle">Accède facilement à ton Happy journal.</h3>
-              <h4 class="is-small">A tout moment, retrouve tous tes Happy Moments des jours précédents.</h4>
+              <h3 class="subtitle">Accède facilement à ton BomBomJournal.</h3>
+              <h4 class="is-small">A tout moment, retrouve tous tes BomBomMoments des jours précédents.</h4>
             </div>
           </div>
         </div>
@@ -103,6 +103,8 @@ export default {
 .hero-body {
   margin-top: 0px;
 }
+
+
 
 
 

@@ -7,10 +7,10 @@
                 <div v-if="runningChallenge" class="column challenge">
                     <section v-if="!isChallengeSucceeded">
                         <div class="has-text-centered">
-                            <label class="label title has-text-centered">#1 - Mon Happy Challenge<br>du jour</label>
+                            <label class="label title has-text-centered">#1 - Mon BomBomChallenge<br>du jour</label>
                             <p class="label has-text-centered">{{ runningChallenge.text }}</p>
                             <section v-if="!isChallengeAccepted">
-                                <button @click="acceptChallenge" class="button is-primary">Challenge accepté !</button>
+                                <button @click="acceptChallenge" class="button is-primary">Je relève le défi !</button>
                                 <br>
                                 <button @click="skipChallenge" class="button is-primary-invert" style="margin-top: 10px">
                                     <span>Je passe mon tour &nbsp;</span>
@@ -41,7 +41,7 @@
                     <section v-if="isChallengeSucceeded">
                         <div class="has-text-centered" style="margin-top:15px">
                             <label class="label title has-text-centered">Félicitations ! Tu as relevé
-                                <strong> {{ numberOfChallengesSucceeded }} Happy Challenges.</strong> Tu déchires !</label>
+                                <strong> {{ numberOfChallengesSucceeded }} BomBomChallenges.</strong> Tu déchires !</label>
                             <figure id="poussin" class="image is-4by3">
                                 <img src="https://media.giphy.com/media/l0MYtjhrNDLnlKf28/giphy.gif" class="promo-img" alt="Smiiile">
                             </figure>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="column gratitude">
                     <div class="has-text-centered">
-                        <label class="label title has-text-centered">#2 - Mes Happy Moments <br> tous les jours</label>
+                        <label class="label title has-text-centered">#2 - Mes BomBomMoments <br> tous les jours</label>
                         <div>
                             <label class="label has-text-centered">Qu'est ce qui m'a rendu heureux aujourd'hui ?</label>
                             <div class="control">
@@ -79,7 +79,7 @@
             <hr style="margin-top: 10px">
 
             <div class="memories">
-                <p class="title">Mes Happy Moments</p>
+                <p class="title">Mon BomBomJournal</p>
                 <div class="box">
 
                     <div v-for="moment in moments">
