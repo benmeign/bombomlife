@@ -177,7 +177,7 @@ export default {
                 moment.editStatus = false
                 this.moments.unshift(moment)
                 this.newMoment = {}
-                this.savedMessage = 'Well done, you have a new happy memory below!';
+                this.savedMessage = 'Bravo, tu trouveras ton nouveau BomBomMoment ci-dessous !';
                 setTimeout(() => {
                     this.savedMessage = '';
                 }, 5000)
