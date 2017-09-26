@@ -43,24 +43,24 @@
             Parce que nous pensons que le bonheur s'apprend, <br>entraine toi à la pratique du bonheur pendant 21 jours.
           </h1>
           <h2 class="subtitle">
-            <i>"Aucune grâce extérieure n'est complète si la beauté intérieure ne la vivifie."</i> Victor Hugo
+            <i>"Celui qui déplace la montagne, c’est celui qui commence à enlever les petites pierres."</i> Confucius
           </h2>
           <div class="columns">
             <div class="column is-large">
               <p>
                 <i class="fa fa-trophy fa-3x" aria-hidden="true"></i>
               </p>
-              <h3 class="subtitle">Chaque matin, reçois un BomBomChallenge à relever !</h3>
+              <h3 class="subtitle">Chaque matin, reçois <br>un BomBomChallenge <br> à relever</h3>
               <h4 class="is-small">Nous avons concocté pour toi de petits défis pour enchanter ton quotidien.</h4>
             </div>
             <div class="column">
               <i class="fa fa-file-text fa-3x" aria-hidden="true"></i>
-              <h3 class="subtitle">Collecte tes BomBomMoments de bonheur quotidiens.</h3>
+              <h3 class="subtitle">Collecte tes <br>BomBomMoments de <br>bonheur quotidien</h3>
               <h4 class="is-small">Chaque soir, note ce qui t'a rendu heureux et garde le précieusement, rien que pour toi.</h4>
             </div>
             <div class="column">
               <i class="fa fa-gittip fa-3x" aria-hidden="true"></i>
-              <h3 class="subtitle">Accède facilement à ton BomBomJournal.</h3>
+              <h3 class="subtitle">Accède <br>facilement à ton <br>BomBomJournal</h3>
               <h4 class="is-small">A tout moment, retrouve tous tes BomBomMoments des jours précédents.</h4>
             </div>
           </div>
@@ -103,6 +103,14 @@ export default {
 .hero-body {
   margin-top: 0px;
 }
+
+
+
+
+
+
+
+
 
 
 
