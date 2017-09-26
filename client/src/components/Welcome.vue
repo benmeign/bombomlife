@@ -11,7 +11,7 @@
             </div>
             <div class="column is-6 is-offset-1 is-warning">
               <h1 class="title is-2">
-                Apprends le bonheur en 21 jours !
+                Apprends le bonheur <br>en 21 jours !
               </h1>
               <h2 class="subtitle is-4">
                 C'est gratuit, simple et facile.
@@ -40,7 +40,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Parce que nous pensons que le bonheur s'apprend, entraine toi à la pratique du bonheur pendant 21 jours.
+            Parce que nous pensons que le bonheur s'apprend, <br>entraine toi à la pratique du bonheur pendant 21 jours.
           </h1>
           <h2 class="subtitle">
             <i>"Aucune grâce extérieure n'est complète si la beauté intérieure ne la vivifie."</i> Victor Hugo
@@ -103,6 +103,9 @@ export default {
 .hero-body {
   margin-top: 0px;
 }
+
+
+
 
 
 

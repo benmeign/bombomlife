@@ -16,12 +16,13 @@
             </span>
             <span class="navbar-start is-primary is-hidden-mobile">Login</span>
           </router-link>
-          <router-link to="/mymoments" v-else>
-            <span class="icon">
-              <img src="./assets/yoga-green.png" alt="Profile" height="28">
-            </span>
-            <span class="navbar-start is-primary is-active is-hidden-mobile">My Profile</span>
-          </router-link>
+          <div to="/" @click="logout" v-else>
+            <p class="icon">
+              <i class="fa fa-sign-out is-primary" aria-hidden="true">
+              </i>
+              <span class="navbar-start is-primary is-active is-hidden-mobile" style="margin-right:80px">&nbspDéconnexion</span>
+            </p>
+          </div>
         </a>
       </div>
 
@@ -41,7 +42,7 @@
               <i class="fa fa-facebook"> </i>
             </a>
           </p>
-          <button class="button is-primary" @click="logout" v-if="$root.user">Logout</button>
+          <button class="button is-primary" @click="logout" v-if="$root.user">Déconnexion</button>
         </div>
       </div>
     </footer>

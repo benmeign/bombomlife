@@ -5,7 +5,7 @@
                 <div class="columns">
                     <div class="column is-6 is-offset-3">
                         <h1 class="title">
-                            Connect to your <br> BomBomLife account
+                            Connecte toi à ton <br> compte BomBomLife 
                         </h1>
 
                         <div class="box">
@@ -27,11 +27,11 @@
                                         <b-input v-model="email" type="email" required></b-input>
                                     </b-field>
 
-                                    <b-field label="Password">
+                                    <b-field label="Mot de passe">
                                         <b-input v-model="password" type="password" required></b-input>
                                     </b-field>
 
-                                    <button class="button is-primary" :class="buttonClasses">Login</button>
+                                    <button class="button is-primary" :class="buttonClasses">Connexion</button>
                                 </form>
                             </div>
 

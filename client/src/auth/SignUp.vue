@@ -5,44 +5,32 @@
         <div class="columns">
           <div class="column is-6 is-offset-3">
             <h1 class="title">
-              Créer ton compte et démarre la BomBomLife
+              Crée ton compte et <br>démarre ta BomBomLife
             </h1>
 
             <div class="box">
-              <!-- <div class="facebook">
-                                                              <a class="button-facebook" href="/auth/facebook">
-                                                                <i class="fa fa-facebook fa-fw"></i> Sign up with Facebook</a>
-                                                            </div>
-
-                                                            <div class="or-separator">
-                                                              <div class="or-line"></div>
-                                                              <div class="or-text">OR</div>
-                                                              <div class="or-line"></div>
-                                                            </div>
-
-                                                            <div> -->
 
               <article v-if="error" class="message is-danger">
                 <div class="message-body">{{ error.message }}</div>
               </article>
 
-              <b-field label="Name">
+              <b-field label="Nom (celui que tu veux)">
                 <b-input v-model="name" type="text" placeholder="Balou" required>
                 </b-input>
               </b-field>
 
-              <b-field label="Email">
+              <b-field label="Email (celui que tu utilises vraiment)">
                 <b-input v-model="email" type="email" placeholder="balou@lelivredelajungle.com" required>
                 </b-input>
               </b-field>
 
-              <b-field label="Password">
+              <b-field label="Mot de passe (retiens le bien !)">
                 <b-input v-model="password" type="password" placeholder="ilenfautpeupouretreheureux" required>
                 </b-input>
               </b-field>
 
-              <p class="control has-text-centered">
-                <button class="button is-primary" @click="signup" :class="buttonClasses">Register</button>
+              <p class="control has-text-centered" style="margin-top:30px">
+                <button class="button is-primary" @click="signup" :class="buttonClasses">En route !</button>
               </p>
             </div>
 
