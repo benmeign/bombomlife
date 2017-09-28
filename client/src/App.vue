@@ -121,4 +121,11 @@ $link-focus-border: $primary;
 .footer {
   margin-top: 0px;
 }
+
+@media screen and (max-width: 600px) {
+  hr {
+    margin: 0;
+    margin-top: 0px;
+  }
+}
 </style>

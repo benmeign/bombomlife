@@ -79,7 +79,7 @@
             <hr style="margin-top: 10px">
 
             <div class="memories">
-                <p class="title">Mon BomBomJournal</p>
+                <p style="margin-top: 20px" class="title">Mon BomBomJournal</p>
                 <div class="box">
 
                     <div v-for="moment in moments">
